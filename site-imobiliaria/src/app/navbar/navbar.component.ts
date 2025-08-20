@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  abrirModal() {
-    // Implemente aqui a lógica para abrir o modal
-    // Por exemplo, usando um serviço ou alterando uma variável de exibição
-    console.log('Abrir modal chamado');
-  }
+  @Output() abrirModal = new EventEmitter<void>();
 }

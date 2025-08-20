@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modal-desktop',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './modal-desktop.css'
 })
 export class ModalDesktop {
-
+  @Output() fecharModal = new EventEmitter<void>();
 }
