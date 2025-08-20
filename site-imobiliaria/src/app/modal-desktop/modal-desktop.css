@@ -1,0 +1,76 @@
+
+.modal-desktop {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999999;
+}
+@media (max-width: 720px) {
+  .modal-desktop {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+  }
+}
+.modal-desktop .header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 7%;
+}
+.modal-desktop .header button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  margin-right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all ease 0.3s;
+  color: #fff;
+  background: #e42320;
+  font-size: 18px;
+}
+.modal-desktop .header button:hover {
+  background-color: #e42320;
+}
+.modal-desktop .header button:focus {
+  border: none;
+}
+.modal-desktop .container-lista-menu {
+  height: 90%;
+  overflow-y: scroll;
+  padding: 10px;
+}
+.modal-desktop .container-lista-menu::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+.modal-desktop .container-lista-menu::-webkit-scrollbar {
+  width: 5px;
+}
+.modal-desktop .container-lista-menu::-webkit-scrollbar-thumb {
+  background-color: green;
+  border-radius: 2.5px;
+  height: 10px;
+}
+.modal-desktop ul {
+  font-size: 0.9rem;
+  list-style: none;
+}
+.modal-desktop ul .list-titulo {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.modal-desktop ul a {
+  color: #fff;
+  font-size: 1rem;
+}
+.modal-desktop ul img {
+  width: 20px;
+  margin-right: 0.5rem;
+}
