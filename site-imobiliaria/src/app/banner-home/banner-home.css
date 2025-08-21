@@ -91,7 +91,7 @@
   width: 90%;
 }
 .btn-active-busca {
-  background-color: #e42320;
+  background-color: #857c5c;
   color: #fff;
 }
 .buttom_finalidade_busca_home {
@@ -117,7 +117,7 @@
   padding: 10px;
 }
 .buttom_finalidade_busca_home:hover {
-  background-color: #e42320;
+  background-color: #857c5c;
   color: #fff;
 }
 @media (max-width: 720px) {
@@ -125,3 +125,4 @@
     padding: 4px 2px;
   }
 }
+ 
