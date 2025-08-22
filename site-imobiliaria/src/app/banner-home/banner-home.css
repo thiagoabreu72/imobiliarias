@@ -5,6 +5,7 @@
   background-position-x: right !important;
   padding-top: 40px;
   padding-bottom: 60px;
+  margin-top: 20px;
 }
 @media (min-width: 721px) and (max-width: 1280px) {
   #banner_home {
@@ -33,7 +34,7 @@
   }
 }
 #banner_home .titulo_principal {
-  font-family: "Roboto-Regular", sans-serif;
+  font-family: 'Roboto-Regular', sans-serif;
   color: #fff;
   font-size: 2.5rem;
   margin-bottom: 10px;
@@ -48,12 +49,13 @@
   padding-top: 35px;
   padding-bottom: 50px;
   border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
   width: 100%;
   margin: auto;
-  -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
-    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
-    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12),
+    0 8px 10px -7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12),
+    0 8px 10px -7px rgba(0, 0, 0, 0.2);
 }
 @media (max-width: 720px) {
   .busca_home {
@@ -79,7 +81,7 @@
 .busca_home .chosen-container-single .chosen-single div b {
   margin-top: 12px;
 }
-.busca_home .chosen-container-single .chosen-search input[type="text"] {
+.busca_home .chosen-container-single .chosen-search input[type='text'] {
   height: 40px;
   line-height: 40px;
   background: none;
@@ -90,10 +92,10 @@
   padding: 0px;
   width: 90%;
 }
-.btn-active-busca {
+/* .btn-active-busca {
   background-color: #857c5c;
   color: #fff;
-}
+} */
 .buttom_finalidade_busca_home {
   display: flex;
   justify-content: center;
@@ -120,9 +122,12 @@
   background-color: #857c5c;
   color: #fff;
 }
+.buttom_finalidade_busca_home.active-finalidade {
+  background-color: #857c5c;
+  color: #fff;
+}
 @media (max-width: 720px) {
   .buttom_finalidade_busca_home {
     padding: 4px 2px;
   }
 }
- 

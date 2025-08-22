@@ -12,6 +12,15 @@ export class BannerHome implements AfterViewInit {
     if (titulo) {
       this.typeWrite(titulo);
     }
+
+      // Adiciona evento de clique nos botões de finalidade
+      const buttons = document.querySelectorAll('.buttom_finalidade_busca_home');
+      buttons.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active-finalidade'));
+          btn.classList.add('active-finalidade');
+        });
+      });
   }
 
   typeWrite(element: Element) {
