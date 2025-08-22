@@ -1,8 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
-
+import {MultiSelectDropdownComponent} from '../components/multi-select-dropdown.component/multi-select-dropdown.component';
 @Component({
   selector: 'app-banner-home',
-  imports: [],
+  imports: [MultiSelectDropdownComponent],
   templateUrl: './banner-home.html',
   styleUrl: './banner-home.css'
 })
