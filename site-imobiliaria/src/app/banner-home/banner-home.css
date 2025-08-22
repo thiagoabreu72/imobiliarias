@@ -131,3 +131,9 @@
     padding: 4px 2px;
   }
 }
+
+.select-dropdowns {
+  display: flex;
+  flex-direction: row;  
+  flex-grow: 1;
+}

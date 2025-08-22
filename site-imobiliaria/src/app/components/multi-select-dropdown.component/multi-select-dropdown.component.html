@@ -1,5 +1,5 @@
 <div class="dropdown" [class.show]="dropdownOpen">
-  <label for="dropdownButton" class="mb-0">TIPO</label>
+  <label for="dropdownButton" class="mb-0">{{ label }}</label>
   <button 
   class="btn dropdown-toggle" 
   type="button" 
@@ -29,9 +29,4 @@
       }
     </form>
   </div>
-  <!-- <div class="mt-2">
-    @if (getSelectedOptions()) {
-      <span>Selecionados: {{ getSelectedOptions() }}</span>
-    }
-  </div> -->
 </div>

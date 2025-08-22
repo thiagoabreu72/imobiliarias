@@ -7,6 +7,32 @@ import {MultiSelectDropdownComponent} from '../components/multi-select-dropdown.
   styleUrl: './banner-home.css'
 })
 export class BannerHome implements AfterViewInit {
+  tipoImovelOptions = [
+    { label: 'Casa', value: 'casa', checked: false },
+    { label: 'Apartamento', value: 'apartamento', checked: false },
+    { label: 'Terreno', value: 'terreno', checked: false }
+  ];
+
+  cidadeOptions = [
+    { label: 'São Paulo', value: 1, checked: false },
+    { label: 'Rio de Janeiro', value: 2, checked: false },
+    { label: 'Belo Horizonte', value: 3, checked: false },
+    { label: 'Campo Mourão', value: 4, checked: false },
+    { label: 'Cascavel', value: 5, checked: false },
+    { label: 'Londrina', value: 6, checked: false },
+    { label: 'Boa Esperança', value: 7, checked: false }
+  ];
+
+  bairrosOptions = [
+    { label: 'Centro', value: 1, checked: false },
+    { label: 'Jardim', value: 2, checked: false },
+    { label: 'Vila', value: 3, checked: false },
+    { label: 'Zona Sul', value: 4, checked: false },
+    { label: 'Zona Norte', value: 5, checked: false },
+    { label: 'Zona Leste', value: 6, checked: false },
+    { label: 'Zona Oeste', value: 7, checked: false }
+  ];
+
   ngAfterViewInit() {
     const titulo = document.querySelector('.texto_animado_banner');
     if (titulo) {

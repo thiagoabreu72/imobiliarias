@@ -29,10 +29,15 @@
                   </div>
                 </div>
 
-                <app-multi-select-dropdown></app-multi-select-dropdown>
-                <app-multi-select-dropdown></app-multi-select-dropdown>
-
               </div>
+
+              <div class="select-dropdowns">
+                <app-multi-select-dropdown [label]="'Tipo de imóvel'" [options]="tipoImovelOptions"></app-multi-select-dropdown>
+                <app-multi-select-dropdown [label]="'Cidade'" [options]="cidadeOptions"></app-multi-select-dropdown>
+                <app-multi-select-dropdown [label]="'Bairros'" [options]="bairrosOptions"></app-multi-select-dropdown>
+               </div>
+
+               
             </div>
           </div>
         </div>
