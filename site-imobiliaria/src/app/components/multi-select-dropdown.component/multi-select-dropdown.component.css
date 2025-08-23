@@ -1,12 +1,12 @@
 .dropdown-menu {
-  min-width: 150px;
+  min-width: 150%;    
 }
 
 .btn.dropdown-toggle {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 30%;
+  width: 100%;
   background-color: #fff;
   color: #a5a3a3;
   font-size: 12px;
@@ -36,7 +36,7 @@
 }
 
 .dropdown-menu.show {
-  display: block;
+  display: block;  
 }
 
 label[for="dropdownButton"] {

@@ -1,7 +1,7 @@
 <div id="banner_home" class="justify-content-center align-items-center">
-  <div class="container">    
-    <div class="container_box_busca_home">   
-      <div class="row">        
+  <div class="container">
+    <div class="container_box_busca_home">
+      <div class="row">
         <div class="col-12">
           <h1 class="titulo_principal color_white text-center texto_animado_banner">
             Viver bem é com a gente!
@@ -28,16 +28,54 @@
                     </div>
                   </div>
                 </div>
-
               </div>
 
               <div class="select-dropdowns">
-                <app-multi-select-dropdown [label]="'Tipo de imóvel'" [options]="tipoImovelOptions"></app-multi-select-dropdown>
-                <app-multi-select-dropdown [label]="'Cidade'" [options]="cidadeOptions"></app-multi-select-dropdown>
-                <app-multi-select-dropdown [label]="'Bairros'" [options]="bairrosOptions"></app-multi-select-dropdown>
-               </div>
+                <div class="dropdowns-item">
+                  <app-multi-select-dropdown  [label]="'Tipo'" [options]="tipoImovelOptions"></app-multi-select-dropdown>
+                </div>
+                <div class="dropdowns-item">
+                  <app-multi-select-dropdown  [label]="'Cidade'" [options]="cidadeOptions"></app-multi-select-dropdown>
+                </div>
+                <div class="dropdowns-item" >
+                  <app-multi-select-dropdown  [label]="'Bairros'" [options]="bairrosOptions"></app-multi-select-dropdown>
+                </div>              
+              </div>
 
-               
+              <div class="select-dropdowns">
+                <div class="dropdowns-item">
+                  <app-multi-select-dropdown  [label]="'Quartos'" [options]="quartosOptions"></app-multi-select-dropdown>
+                </div>
+
+                <div class="input-item">
+                  <label for="">Valor</label>
+                  <div class="input-group">
+                    <input type="text" aria-label="First name" class="form-control" placeholder="Min">
+                    <input type="text" aria-label="Last name" class="form-control" placeholder="Max">
+                  </div>                                                    
+                </div> 
+              </div>
+
+              <div class="select-dropdowns">
+                <div class="dropdowns-item" >
+                  <app-multi-select-dropdown  [label]="'Condominio'" [options]="condominioOptions"></app-multi-select-dropdown>
+                </div>  
+                <div class="dropdowns-item bt-buscar">
+                  <button class="btn btn-primary " type="submit">Button</button>
+                </div>  
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
           </div>
         </div>

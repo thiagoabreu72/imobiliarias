@@ -135,5 +135,51 @@
 .select-dropdowns {
   display: flex;
   flex-direction: row;  
-  flex-grow: 1;
+  align-content: flex-start;
+  width: 100%; 
+  margin: 0;
+}
+
+.dropdowns-item {
+  flex: 1; 
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.input-item{
+  flex-direction: row;
+  flex: 2; 
+}
+
+.input-item label {
+  font-size: 12px;
+}
+
+.input-item .form-control {
+  height: 40px;
+  font-size: 16px;  
+}
+
+.input-item .form-control::placeholder {
+  color: #a5a3a3;
+  font-size: 12px;
+  opacity: 1;       
+}
+
+.bt-buscar {
+  position: relative;
+}
+
+.bt-buscar button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;    
+  background-color: #857c5c;
+  border: none;
+  height: 40px;
+}
+
+.bt-buscar button:hover {
+   background-color: #6e6650;
+  box-shadow: 0 8px 16px -4px rgba(0,0,0,0.25);
 }

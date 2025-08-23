@@ -33,6 +33,19 @@ export class BannerHome implements AfterViewInit {
     { label: 'Zona Oeste', value: 7, checked: false }
   ];
 
+  quartosOptions = [
+    { label: '1 Quarto', value: '1_quarto', checked: false },
+    { label: '2 Quartos', value: '2_quartos', checked: false },
+    { label: '3 Quartos', value: '3_quartos', checked: false }
+  ];
+
+  condominioOptions = [
+    { label: 'Lilaje', value: '1', checked: false },
+    { label: 'Cidade Alta', value: '2', checked: false },
+    { label: 'Novo Centro', value: '3', checked: false },
+    { label: 'Marcovic', value: '4', checked: false }
+  ];
+
   ngAfterViewInit() {
     const titulo = document.querySelector('.texto_animado_banner');
     if (titulo) {
