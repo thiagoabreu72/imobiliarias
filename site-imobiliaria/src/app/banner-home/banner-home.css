@@ -166,6 +166,11 @@
   opacity: 1;       
 }
 
+.input-item .input-group input {
+  color:  #a5a3a3;    
+  font-size: 12px;  
+}
+
 .bt-buscar {
   position: relative;
 }
@@ -183,3 +188,4 @@
    background-color: #6e6650;
   box-shadow: 0 8px 16px -4px rgba(0,0,0,0.25);
 }
+
