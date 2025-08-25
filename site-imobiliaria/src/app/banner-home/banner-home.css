@@ -207,6 +207,7 @@
 
 .busca-codigo-button {
   background-color: #222328; 
+  border: none;  
 }
 
 .busca-codigo-button:hover {
