@@ -1,0 +1,61 @@
+ 
+a {
+    color: #000 !important;
+}
+#container_mais_filtros .nav-pills .nav-link {
+  font-size: 1rem;
+}
+#container_mais_filtros .botoes_lista_imoveis_home {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.botoes_lista_imoveis_home li a.active, .botoes_lista_imoveis_home li a.active:focus {
+    background-color: #857c5c !important;
+    color: #fff !important;
+}
+
+.titulo_section {
+  font-size: 1.5rem;
+}
+.barra_bottom_center:after {
+  content: "";
+  display: block;
+  margin: 10px auto 0px;
+  width: 70px;
+  height: 3px;
+  background: #857c5c;
+}
+.margin-top-10 {
+  margin-top: 10px;
+}
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+.margin-top-30 {
+  margin-top: 30px;
+}
+.margin-bottom-40 {
+  margin-bottom: 40px;
+}
+.nav-link {
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 0.765rem;
+  font-style: normal;
+  font-weight: 500;
+  color: #3a405b;
+  text-decoration: none !important;
+  margin-left: 3px;
+  margin-right: 3px;
+  cursor: pointer;
+}
+.nav-link:hover {
+  color: #3a405b;
+  background-color: #e7e8ed;
+}
+.box_link_mais_filtros {
+  padding: 5px 5px 5px 0px;
+  margin-right: 30px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
