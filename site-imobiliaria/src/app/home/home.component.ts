@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { BannerHome } from '../banner-home/banner-home';
 import { CarrocelBuscaRapida } from "../components/carrocel-busca-rapida/carrocel-busca-rapida";
+import { Footer } from "../components/footer/footer"
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [BannerHome, CarrocelBuscaRapida],
+  imports: [BannerHome, CarrocelBuscaRapida, Footer],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
