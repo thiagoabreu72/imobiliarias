@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { BannerHome } from '../banner-home/banner-home';
 import { CarrocelBuscaRapida } from "../components/carrocel-busca-rapida/carrocel-busca-rapida";
-import { Footer } from "../components/footer/footer"
+import { Footer } from "../components/footer/footer";
+import { MaisFiltros } from "../components/mais-filtros/mais-filtros";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [BannerHome, CarrocelBuscaRapida, Footer],
+  imports: [BannerHome, CarrocelBuscaRapida, Footer, MaisFiltros],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
