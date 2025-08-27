@@ -19,17 +19,23 @@
             <ul class="botoes_lista_imoveis_home nav nav-pills text-center">
               <li class="nav-item">
                 <a
-                  class="nav-link active"
-                  data-toggle="tab"
-                  href="#tab_home_lista_comprar"
+                    class="nav-link active"
+                    data-toggle="tab"
+                    href="#tab_home_lista_comprar"
+                    role="tab"
+                    aria-controls="tab_home_lista_comprar"
+                    aria-selected="true"
                   >Quero Comprar</a
                 >
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link"
-                  data-toggle="tab"
-                  href="#tab_home_lista_alugar"
+                    class="nav-link"
+                    data-toggle="tab"
+                    href="#tab_home_lista_alugar"
+                    role="tab"
+                    aria-controls="tab_home_lista_alugar"
+                    aria-selected="false"
                   >Quero Alugar</a
                 >
               </li>
@@ -38,7 +44,7 @@
             <!-- Tab panes -->
             <div class="tab-content margin-top-20">
               <!-- tab lista comprar -->
-              <div class="tab-pane active" id="tab_home_lista_comprar">
+              <div class="tab-pane fade show active" id="tab_home_lista_comprar"  role="tabpanel" aria-labelledby="tab_home_lista_comprar-tab">
                 <div class="row">
                   <!-- bairro 1 -->
                   <div class="col-12 col-sm-6 col-md-3 margin-top-30">
@@ -201,7 +207,7 @@
               <!-- end tab lista comprar -->
 
               <!-- tab lista comprar -->
-              <div class="tab-pane fade" id="tab_home_lista_alugar">
+              <div class="tab-pane fade" id="tab_home_lista_alugar" role="tabpanel" aria-labelledby="tab_home_lista_alugar-tab">
                 <div class="row">
                   <!-- bairro 1 -->
                   <div class="col-12 col-sm-6 col-md-3 margin-top-30">
