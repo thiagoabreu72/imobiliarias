@@ -1,7 +1,8 @@
 <div class="container mt-4">
-  <div id="empreendimentosCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div id="empreendimentosCarousel" class="carousel slide" data-bs-ride="carousel"  #carouselRef>
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      
+        <div class="carousel-item active">
         <img src="https://cdn.imoview.com.br/portosegurost/Site/imagens/8uf3gsmt.png" class="d-block w-100 carousel-img" alt="Empreendimento 1">
         <div class="carousel-caption d-none d-md-block">
           <h5>Empreendimento 1</h5>
@@ -30,13 +31,19 @@
         </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#empreendimentosCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Anterior</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#empreendimentosCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Próximo</span>
-    </button>
+    <div class="container-setas d-flex justify-content-center mt-2">
+      <div
+        class="arrow-lef-empreendimento arrow_circle seta_left_empreendimento"
+       (click)="prev(carouselRef)"
+      >
+        <span class="carousel_setinha">‹</span>
+      </div>
+      <div
+        class="arrow-right-empreendimento arrow_circle seta_right_empreendimento"
+        (click)="next(carouselRef)"
+      >
+        <span class="carousel_setinha">›</span>
+      </div>
+    </div>
   </div>
 </div>

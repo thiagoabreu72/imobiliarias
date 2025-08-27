@@ -7,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrl: './carrocel-empreendimentos.css'
 })
 export class CarrocelEmpreendimentos {
+  prev(carouselRef: HTMLElement) {
+    // @ts-ignore
+    const bsCarousel = window.bootstrap.Carousel.getOrCreateInstance(carouselRef);
+    bsCarousel.prev();
+  }
 
+  next(carouselRef: HTMLElement) {
+    // @ts-ignore
+    const bsCarousel = window.bootstrap.Carousel.getOrCreateInstance(carouselRef);
+    bsCarousel.next();
+  }
 }

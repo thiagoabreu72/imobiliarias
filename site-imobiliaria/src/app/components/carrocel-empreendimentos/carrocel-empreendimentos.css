@@ -1,6 +1,15 @@
- .carousel-img {
-    width: 1400px !important;
-    height: 350px !important;
-    object-fit: cover;
-    margin: 0 auto;
-  }
+.arrow_circle {
+  background: #fff;
+  width: 35px;
+  height: 35px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0px 0px 5px 0px #bdbdbd;
+  -moz-box-shadow: 0px 0px 5px 0px #bdbdbd;
+  box-shadow: 0px 0px 5px 0px #bdbdbd;
+  color: #505050;
+  margin: 0 5px;
+  cursor: pointer;
+}
