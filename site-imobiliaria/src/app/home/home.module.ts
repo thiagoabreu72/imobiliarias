@@ -5,6 +5,7 @@ import { HomeComponent } from './home.component';
 import { BannerHome } from '../banner-home/banner-home';
 import { routes } from './home.routes';
 
+ 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes), HomeComponent, BannerHome],
 })

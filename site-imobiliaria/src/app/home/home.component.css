@@ -3,3 +3,12 @@
   width: 100%;
   min-height: 100vh;
 }
+
+.titulo_section {
+  font-size: 1.5rem;
+  font-family: 'Roboto-Regular', sans-serif;
+}
+.subtitulo_section {
+  font-size: 1.2rem;
+  font-family: 'Roboto-Regular', sans-serif;
+}

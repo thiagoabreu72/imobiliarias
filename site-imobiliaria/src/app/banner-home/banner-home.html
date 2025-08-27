@@ -1,7 +1,7 @@
 <div id="banner_home" class="justify-content-center align-items-center">
-  <div class="container-fluid">    
-    <div class="container_box_busca_home">   
-      <div class="row">        
+  <div class="container">
+    <div class="container_box_busca_home">
+      <div class="row">
         <div class="col-12">
           <h1 class="titulo_principal color_white text-center texto_animado_banner">
             Viver bem é com a gente!
@@ -10,7 +10,7 @@
             <div class="form-row home-row-form">
               <div class="col-12 col-sm-12 col-md-12 wrap_botoes_busca">
                 <div class="d-flex justify-content-center align-items-center">
-                  <div class="buttom_finalidade_busca_home btn-active-busca">
+                  <div class="buttom_finalidade_busca_home btn-active-busca active-finalidade">
                     <div class="d-flex justify-content-center">
                       <span data-campofinalidade="comprar" class="finalidade-busca">Comprar</span>
                     </div>
@@ -29,6 +29,48 @@
                   </div>
                 </div>
               </div>
+
+              <div class="select-dropdowns">
+                <div class="dropdowns-item">
+                  <app-multi-select-dropdown  [label]="'Tipo'" [options]="tipoImovelOptions"></app-multi-select-dropdown>
+                </div>
+                <div class="dropdowns-item">
+                  <app-multi-select-dropdown  [label]="'Cidade'" [options]="cidadeOptions"></app-multi-select-dropdown>
+                </div>
+                <div class="dropdowns-item" >
+                  <app-multi-select-dropdown  [label]="'Bairros'" [options]="bairrosOptions"></app-multi-select-dropdown>
+                </div>              
+              </div>
+
+              <div class="select-dropdowns">
+                <div class="dropdowns-item">
+                  <app-multi-select-dropdown  [label]="'Quartos'" [options]="quartosOptions"></app-multi-select-dropdown>
+                </div>
+                <div class="input-item">
+                  <label for="">Valor</label>
+                  <div class="input-group">
+                    <input type="number" aria-label="First name" class="form-control" placeholder="Min">
+                    <input type="number" aria-label="Last name" class="form-control" placeholder="Max">
+                  </div>                                                    
+                </div> 
+              </div>
+
+              <div class="select-dropdowns">
+                <div class="dropdowns-item" >
+                  <app-multi-select-dropdown  [label]="'Condominio'" [options]="condominioOptions"></app-multi-select-dropdown>
+                </div>  
+                <div class="dropdowns-item bt-buscar">
+                  <button class="btn btn-primary " type="submit">Buscar Imóveis</button>
+                </div>  
+              </div>
+
+            </div>
+          </div>
+
+          <div class="busca-codigo">
+            <div class="input-group mb-3 justify-content-center" >
+              <input class="text-center busca-codigo-input" type="text" placeholder="Digite o código">
+              <button class="btn btn-primary busca-codigo-button" type="submit">BUSCAR POR CÓDIGO</button>
             </div>
           </div>
         </div>
@@ -36,3 +78,5 @@
     </div>
   </div>
 </div>
+
+ 

@@ -1,0 +1,94 @@
+#footer {
+  background-color: #013c56;
+  color: #3a405b;
+  padding-top: 40px;
+  color: #fff;
+}
+#footer .titulo_footer {
+  font-family: "Roboto-Bold", sans-serif;
+  color: #fff;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#footer ul {
+  padding-top: 0px;
+}
+#footer ul li {
+  padding: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 14px;
+  line-height: 39px;
+}
+#footer ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+#footer p {
+  font-size: 14px;
+  line-height: 24px;
+}
+#footer #text-copyright {
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: solid #fff 1px;
+}
+#footer a {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+}
+@media (max-width: 720px) {
+  #footer {
+    padding-bottom: 80px;
+  }
+}
+@media (max-width: 425px) {
+  #footer h6 {
+    margin-top: 30px;
+  }
+  #footer ul li {
+    padding: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    font-size: 14px;
+    line-height: 35px;
+  }
+}
+
+.logo-footer {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+
+.list-group-item a:hover {
+  color: #857c5c !important; 
+  text-decoration: underline !important;
+  text-decoration-color: #857c5c !important;
+  text-decoration-style: solid !important;
+}
+
+
+.mini_icon_rodape {
+  margin-left: 15px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
