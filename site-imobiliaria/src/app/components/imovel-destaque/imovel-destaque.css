@@ -29,11 +29,16 @@ a {
    font-size: 14px;
 }
 
-.botao_destaque_home.btn-active,
+.botao_destaque_home .btn-active{
+  background-color: #857c5c;
+  color: #fff;
+  border: none !important;
+}
+
 .botao_destaque_home:hover,
 .botao_destaque_home:focus {
-  background: #6c757d;
-  color: #fff;
+  color: #3a405b;
+  background-color: #e7e8ed;
 }
 
 
@@ -328,3 +333,6 @@ a {
 .margin-bottom-20 {
   margin-bottom: 20px;
 }
+/* .margin-top-20 {
+  margin-top: 20px;
+} */
