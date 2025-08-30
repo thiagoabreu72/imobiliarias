@@ -238,26 +238,33 @@ a {
 }
 
 .arrow_circle {
-  width: 46px;
-  height: 46px;
-  background: #fff;
-  border: 2px solid #2574a9;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 7px rgba(37,116,169,0.07);
-  transition: background .12s, border-color .12s;
+   background: #fff;
+  width: 35px;
+  height: 35px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0px 0px 5px 0px #bdbdbd;
+  -moz-box-shadow: 0px 0px 5px 0px #bdbdbd;
+  box-shadow: 0px 0px 5px 0px #bdbdbd;
+  color: #505050;
+  margin: 0 5px;
+  cursor: pointer;  
 }
+
 .arrow_circle:hover {
+  background-color: #857c5c; 
+}
+
+/* .arrow_circle:hover {
   background: #2574a9;
   border-color: #2574a9;
-}
-.arrow_circle:hover .carousel_setinha {
+} */
+
+/* .arrow_circle:hover .carousel_setinha {
   color: #fff;
-}
+} */
 
 /* Responsive adjustments */
 @media (max-width: 1199px) {
@@ -285,11 +292,11 @@ a {
   .img-imovel {
     height: 120px;
   }
-  .arrow_circle {
+  /* .arrow_circle {
     width: 38px;
     height: 38px;
     margin: 0 7px;
-  }
+  } */
   /* .card-title.card_imovel_color {
     font-size: 1rem;
   } */

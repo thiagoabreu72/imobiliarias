@@ -13,3 +13,7 @@
   margin: 0 5px;
   cursor: pointer;
 }
+
+.arrow_circle:hover {
+  background-color: #857c5c; 
+}
