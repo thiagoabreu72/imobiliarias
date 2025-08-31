@@ -67,15 +67,4 @@
       </div>
     </ng-container>
   </div>
-  <div class="carrossel-nav" style="display: flex; justify-content: center; align-items: center; margin-top: 16px;">
-    <button class="carrossel-btn" (click)="prevCard()" [disabled]="startIndex === 0" style="margin-right: 12px;">
-      &#8592; Anterior
-    </button>
-    <span style="font-size: 1rem; color: #857c5c; margin: 0 8px;">
-      {{startIndex + 1}} - {{startIndex + visibleCards.length}} de {{cards.length}}
-    </span>
-    <button class="carrossel-btn" (click)="nextCard()" [disabled]="startIndex + visibleCards.length >= cards.length">
-      Próximo &#8594;
-    </button>
-  </div>
 </div>
