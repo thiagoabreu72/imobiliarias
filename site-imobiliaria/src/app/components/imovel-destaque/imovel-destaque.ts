@@ -8,6 +8,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './imovel-destaque.css'
 })
 export class ImovelDestaque {
+  getFimIntervalo(): number {
+    return Math.min(this.startIndex + this.visibleCards.length, this.cards.length);
+  }
   cards = [
     {
       codigo: 20257,
