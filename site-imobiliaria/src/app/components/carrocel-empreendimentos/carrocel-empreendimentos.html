@@ -1,6 +1,15 @@
 <div class="container mt-4">
   <div id="empreendimentosCarousel" class="carousel slide" data-bs-ride="carousel"  #carouselRef>
     <div class="carousel-inner">
+
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="titulo_section color_titulo barra_bottom_center margin-top-20 margin-bottom-20">Oportunidades únicas</h2>
+        </div>
+        <div class="col-12 text-center margin-top-0 margin-bottom-20">
+          <span class="">Conheça nossos lançamentos e oportunidades únicas!</span>
+        </div>
+      </div>
       
         <div class="carousel-item active">
         <img src="https://cdn.imoview.com.br/portosegurost/Site/imagens/8uf3gsmt.png" class="d-block w-100 carousel-img" alt="Empreendimento 1">
@@ -32,16 +41,10 @@
       </div>
     </div>
     <div class="container-setas d-flex justify-content-center mt-2">
-      <div
-        class="arrow-lef-empreendimento arrow_circle seta_left_empreendimento"
-       (click)="prev(carouselRef)"
-      >
+      <div class="arrow-lef-empreendimento arrow_circle seta_left_empreendimento" (click)="prev(carouselRef)">
         <span class="carousel_setinha">‹</span>
       </div>
-      <div
-        class="arrow-right-empreendimento arrow_circle seta_right_empreendimento"
-        (click)="next(carouselRef)"
-      >
+      <div class="arrow-right-empreendimento arrow_circle seta_right_empreendimento" (click)="next(carouselRef)">
         <span class="carousel_setinha">›</span>
       </div>
     </div>
