@@ -1,4 +1,43 @@
 <div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2 class="titulo_section color_titulo barra_bottom_center margin-top-20 margin-bottom-20">Imóveis em Destaque</h2>
+    </div>
+    <div class="col-12 text-center margin-top-0 margin-bottom-20">
+      <span class="">Veja abaixo nossas principais oportunidades</span>
+    </div>
+  </div>
+  <div>
+    <ul class="botoes_lista_imoveis_home nav nav-pills text-center margin-bottom-20">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          data-toggle="tab"
+          href="#tab_home_lista_comprar"
+          role="tab"
+          aria-controls="tab_home_lista_comprar"
+          aria-selected="true" >Comprar</a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="tab"
+          href="#tab_home_lista_alugar"
+          role="tab"
+          aria-controls="tab_home_lista_alugar"
+          aria-selected="false">Alugar</a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="tab"
+          href="#tab_home_lista_alugar"
+          role="tab"
+          aria-controls="tab_home_lista_alugar"
+          aria-selected="false">Super Destaque</a>
+      </li>
+    </ul>
+  </div>
   <div class="slick-track">
     <ng-container *ngFor="let card of visibleCards; let i = index">
       <div class="slick-slide slick-current slick-active" aria-hidden="false">

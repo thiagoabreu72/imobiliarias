@@ -1,3 +1,36 @@
+.botoes_lista_imoveis_home {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.botoes_lista_imoveis_home li a.active, .botoes_lista_imoveis_home li a.active:focus {
+    background-color: #857c5c !important;
+    color: #fff !important;
+}
+
+.botoes_lista_imoveis_home li a{
+  background-color: #bdbdbd;
+}
+
+
+.botoes_lista_imoveis_home .nav-link {
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 0.765rem;
+  font-style: normal;
+  font-weight: 500;
+  color: #3a405b;
+  text-decoration: none !important;
+  margin-left: 3px;
+  margin-right: 3px;
+  cursor: pointer;
+}
+.botoes_lista_imoveis_home .nav-link:hover {
+  color: #3a405b;
+  background-color: #e7e8ed;
+}
+.botoes_lista_imoveis_home .nav-pills .nav-link {
+  font-size: 1rem;
+}
 
 @media (max-width: 1200px) {
   .slick-slide {
