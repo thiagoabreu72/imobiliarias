@@ -1,3 +1,4 @@
+
 @media (max-width: 1200px) {
   .slick-slide {
     min-width: 220px;
@@ -143,23 +144,6 @@ a {
   opacity: 1;
   transform: scale(1);
 }
-/* 
-.link-card-imovel {
-  display: block;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(30,30,30,0.13);
-  background: #fff;
-  transition: box-shadow .22s, transform .22s;
-  margin-bottom: 14px;
-  min-height: 395px;
-  position: relative;
-} */
-
-/*.link-card-imovel:hover {
-  box-shadow: 0 8px 24px rgba(30,30,30,0.18);
-  transform: translateY(-3px) scale(1.025);
-}*/
 
 .card_imovel_style {
   /* border: none;
@@ -277,9 +261,13 @@ a {
   right: 8px;
 }
 .carousel_setinha {
-  color: #eaeaea;
-  font-weight: 500;
-  font-size: 3rem;
+  color: #857c5c;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-actions {
@@ -300,18 +288,19 @@ a {
 
 .arrow_circle {
   background: #fff;
-  width: 35px;
-  height: 35px;
-  line-height: 30px;
-  text-align: center;
-  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 100%;
-  -webkit-box-shadow: 0px 0px 5px 0px #bdbdbd;
-  -moz-box-shadow: 0px 0px 5px 0px #bdbdbd;
   box-shadow: 0px 0px 5px 0px #bdbdbd;
   color: #505050;
   margin: 0 5px;
   cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0;
 }
 
 .arrow_circle:hover {
