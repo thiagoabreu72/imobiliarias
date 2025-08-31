@@ -261,9 +261,9 @@ a {
   right: 8px;
 }
 .carousel_setinha {
-  color: #857c5c;
-  font-weight: 600;
-  font-size: 2rem;
+  color: #505050;
+  /* font-weight: 600; */
+  font-size:2rem;
   line-height: 1;
   display: flex;
   align-items: center;
