@@ -1,467 +1,70 @@
-<section id="section_imoveis_destaque" class="back_primario">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h2 class="titulo_section color_titulo barra_bottom_center text-center margin-top-20 margin-bottom-10">
-              Imóveis em Destaque
-            </h2>
-          </div>
-          <div class="col-12 text-center margin-bottom-20">
-            Veja abaixo nossas principais oportunidades
-          </div>
+<div class="container">
+  <div class="slick-track">
+    <ng-container *ngFor="let card of visibleCards; let i = index">
+      <div class="slick-slide slick-current slick-active" aria-hidden="false">
+        <div class="btn-actions">
+          <img src="./assets/icons/icon-favorito.svg" class="" [id]="'icon-favoritos-' + card.codigo" (click)="favoritar(card.codigo)" />
         </div>
-
-        <div class="row">
-          <div class="col-12 col-sm-12 col-md-12 margin-top-10 margin-bottom-20">
-            <div class="d-flex justify-content-center align-items-center">
-                <button type="button" class="btn botao_destaque_home btn-active">Comprar</button>
-                <button type="button" class="btn botao_destaque_home">Alugar</button>
-                <button type="button" class="btn botao_destaque_home">Super Destaque</button>             
+        <a href="" class="meuLink" [attr.data-codigo-mae]="card.codigo" data-empreendimento="0">
+          <div class="link-card-imovel card card_imovel_style">
+            <div [id]="'carousel-card-' + card.codigo" class="carousel slide" data-interval="false" data-ride="carousel">
+              <div class="container-tag">
+                <div class="tag-card">NOVO</div>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="img-imovel" loading="lazy" [src]="card.imgs[0]" [attr.data-codimovel]="card.codigo" alt="{{card.titulo}}"/>
+                </div>
+                <ng-container *ngFor="let img of card.imgs.slice(1); let idx = index">
+                  <div class="carousel-item" [attr.data-numerofoto]="idx+1">
+                    <img class="img-imovel" loading="lazy" [src]="img" [attr.data-codimovel]="card.codigo" alt="{{card.titulo}}"/>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="carousel-control-prev seta_img" [attr.data-codimovel]="card.codigo" type="button" [attr.data-target]="'#carousel-card-' + card.codigo" data-slide="prev" >
+                <span class="carousel_setinha">‹</span>
+                <span class="sr-only">Previous</span>
+              </div>
+              <div class="carousel-control-next seta_img" [attr.data-codimovel]="card.codigo" type="button" [attr.data-target]="'#carousel-card-' + card.codigo" data-slide="next">
+                <span class="carousel_setinha">›</span>
+                <span class="sr-only">Next</span>
+              </div>                            
             </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 col-sm-12 col-md-12">
-            <!-- carrossel de destaques -->
-            <div id="carrossel_destaques_imoveis"class="slick-initialized slick-slider">
-              <div class="slick-list draggable">
-                <div class="slick-track" >
-                  <!-- Início do card de imóvel -->
-                  <div data-slick-index="0" class="slick-slide slick-current slick-active" aria-hidden="false">
-                    <div class="btn-actions">
-                      <img src="./assets/icons/icon-favorito.svg" class="" id="icon-favoritos-20257" onclick="favoritar(20257)" />
-                    </div>
-                    <a href="" class="meuLink" data-codigo-mae="20257" data-empreendimento="0">
-                      <div class="link-card-imovel card card_imovel_style">
-                        <div id="carousel-card-20257" class="carousel slide" data-interval="false" data-ride="carousel">
-                          <div class="container-tag">
-                            <div class="tag-card">NOVO</div>
-                          </div>
-
-                          <div class="carousel-inner">
-                            <div class="carousel-item active">
-                              <img class="img-imovel" loading="lazy" src="https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994" data-src="https://picsum.photos/300/200" data-codimovel="20257" alt="Apartamento à venda no Centro: "/>
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="1">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20257" alt="Apartamento à venda no Centro:"/>
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="2">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20257" alt="Apartamento à venda no Centro: " />
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="3">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20257" alt="Apartamento à venda no Centro: " /> 
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="4">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20257" alt="Apartamento à venda no Centro: "/>
-                            </div>
-                          </div>
-
-                          <div class="carousel-control-prev seta_img" data-codimovel="20257" type="button" data-target="#carousel-card-20257" data-slide="prev" >
-                            <span class="carousel_setinha">‹</span>
-                            <span class="sr-only">Previous</span>
-                          </div>
-
-                          <div class="carousel-control-next seta_img" data-codimovel="20257" type="button" data-target="#carousel-card-20257" data-slide="next">
-                            <span class="carousel_setinha">›</span>
-                            <span class="sr-only">Next</span>
-                          </div>                            
-                        </div>
-
-                        <div class="card-body">
-                          <div class="container-endereco">
-                            <span>Centro | Cascavel</span>
-                            <div>Apartamento à venda no Centro</div>                                
-                            <div class="preco-imovel-card">                            
-                              <strong> R$ 1.570.000,00 </strong>
-                              <span>Código. 20257</span> 
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="card-footer">
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-area.svg" width="20"/>
-                            <span>169,73 m²</span>
-                            <span>Área principal</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-bed.svg" width="20"/>
-                              <span>2</span>
-                              <span>quarto(s)</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-garage.svg" width="20"/>
-                              <span>3</span>
-                              <span>Vaga(s)</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-shower.svg" width="20"/>
-                              <span>0</span>
-                              <span>banho(s)</span>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <!-- Fim do card de imóvel -->
-
-                  <!-- Início do card de imóvel -->
-                  <div data-slick-index="1" class="slick-slide slick-current slick-active" aria-hidden="false">
-                    <div class="btn-actions">
-                      <img src="./assets/icons/icon-favorito.svg" class="" id="icon-favoritos-20254" onclick="favoritar(20254)" />
-                    </div>
-                    <a href="" class="meuLink" data-codigo-mae="20254" data-empreendimento="0">
-                      <div class="link-card-imovel card card_imovel_style">
-                        <div id="carousel-card-20254" class="carousel slide" data-interval="false" data-ride="carousel">
-                          <div class="container-tag">
-                            <div class="tag-card">NOVO</div>
-                          </div>
-
-                          <div class="carousel-inner">
-                            <div class="carousel-item active">
-                              <img class="img-imovel" loading="lazy" src="https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994" data-src="https://picsum.photos/300/200" data-codimovel="20254" alt="Apartamento à venda no Centro: "/>
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="1">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20254" alt="Apartamento à venda no Centro:"/>
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="2">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20254" alt="Apartamento à venda no Centro: " />
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="3">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20254" alt="Apartamento à venda no Centro: " /> 
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="4">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20254" alt="Apartamento à venda no Centro: "/>
-                            </div>
-                          </div>
-
-                          <div class="carousel-control-prev seta_img" data-codimovel="20254" type="button" data-target="#carousel-card-20254" data-slide="prev" >
-                            <span class="carousel_setinha">‹</span>
-                            <span class="sr-only">Previous</span>
-                          </div>
-
-                          <div class="carousel-control-next seta_img" data-codimovel="20254" type="button" data-target="#carousel-card-20254" data-slide="next">
-                            <span class="carousel_setinha">›</span>
-                            <span class="sr-only">Next</span>
-                          </div>                            
-                        </div>
-
-                        <div class="card-body">
-                          <div class="container-endereco">
-                            <span>Centro | Cascavel</span>
-                            <div>Apartamento à venda no Centro</div>                                
-                            <div class="preco-imovel-card">                            
-                              <strong> R$ 1.570.000,00 </strong>
-                              <span>Código. 20254</span> 
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="card-footer">
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-area.svg" width="20"/>
-                            <span>169,73 m²</span>
-                            <span>Área principal</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-bed.svg" width="20"/>
-                              <span>2</span>
-                              <span>quarto(s)</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-garage.svg" width="20"/>
-                              <span>3</span>
-                              <span>Vaga(s)</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-shower.svg" width="20"/>
-                              <span>0</span>
-                              <span>banho(s)</span>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <!-- Fim do card de imóvel -->
-
-                  <!-- Início do card de imóvel -->
-                  <div data-slick-index="2" class="slick-slide slick-current slick-active" aria-hidden="false">
-                    <div class="btn-actions">
-                      <img src="./assets/icons/icon-favorito.svg" class="" id="icon-favoritos-20243" onclick="favoritar(20243)" />
-                    </div>
-                    <a href="" class="meuLink" data-codigo-mae="20243" data-empreendimento="0">
-                      <div class="link-card-imovel card card_imovel_style">
-                        <div id="carousel-card-20243" class="carousel slide" data-interval="false" data-ride="carousel">
-                          <div class="container-tag">
-                            <div class="tag-card">NOVO</div>
-                          </div>
-
-                          <div class="carousel-inner">
-                            <div class="carousel-item active">
-                              <img class="img-imovel" loading="lazy" src="https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994" data-src="https://picsum.photos/300/200" data-codimovel="20243" alt="Apartamento à venda no Centro: "/>
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="1">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20243" alt="Apartamento à venda no Centro:"/>
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="2">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20243" alt="Apartamento à venda no Centro: " />
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="3">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20243" alt="Apartamento à venda no Centro: " /> 
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="4">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20243" alt="Apartamento à venda no Centro: "/>
-                            </div>
-                          </div>
-
-                          <div class="carousel-control-prev seta_img" data-codimovel="20243" type="button" data-target="#carousel-card-20243" data-slide="prev" >
-                            <span class="carousel_setinha">‹</span>
-                            <span class="sr-only">Previous</span>
-                          </div>
-
-                          <div class="carousel-control-next seta_img" data-codimovel="20243" type="button" data-target="#carousel-card-20243" data-slide="next">
-                            <span class="carousel_setinha">›</span>
-                            <span class="sr-only">Next</span>
-                          </div>                            
-                        </div>
-
-                        <div class="card-body">
-                          <div class="container-endereco">
-                            <span>Centro | Cascavel</span>
-                            <div>Apartamento à venda no Centro</div>                                
-                            <div class="preco-imovel-card">                            
-                              <strong> R$ 1.570.000,00 </strong>
-                              <span>Código. 20243</span> 
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="card-footer">
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-area.svg" width="20"/>
-                            <span>169,73 m²</span>
-                            <span>Área principal</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-bed.svg" width="20"/>
-                              <span>2</span>
-                              <span>quarto(s)</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-garage.svg" width="20"/>
-                              <span>3</span>
-                              <span>Vaga(s)</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-shower.svg" width="20"/>
-                              <span>0</span>
-                              <span>banho(s)</span>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <!-- Fim do card de imóvel -->
-
-                  <!-- Início do card de imóvel -->
-                  <div data-slick-index="3" class="slick-slide slick-current slick-active" aria-hidden="false">
-                    <div class="btn-actions">
-                      <img src="./assets/icons/icon-favorito.svg" class="" id="icon-favoritos-20275" onclick="favoritar(20275)" />
-                    </div>
-                    <a href="" class="meuLink" data-codigo-mae="20275" data-empreendimento="0">
-                      <div class="link-card-imovel card card_imovel_style">
-                        <div id="carousel-card-20275" class="carousel slide" data-interval="false" data-ride="carousel">
-                          <div class="container-tag">
-                            <div class="tag-card">NOVO</div>
-                          </div>
-
-                          <div class="carousel-inner">
-                            <div class="carousel-item active">
-                              <img class="img-imovel" loading="lazy" src="https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994" data-src="https://picsum.photos/300/200" data-codimovel="20275" alt="Apartamento à venda no Centro: "/>
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="1">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20275" alt="Apartamento à venda no Centro:"/>
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="2">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20275" alt="Apartamento à venda no Centro: " />
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="3">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20275" alt="Apartamento à venda no Centro: " /> 
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="4">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20275" alt="Apartamento à venda no Centro: "/>
-                            </div>
-                          </div>
-
-                          <div class="carousel-control-prev seta_img" data-codimovel="20275" type="button" data-target="#carousel-card-20275" data-slide="prev" >
-                            <span class="carousel_setinha">‹</span>
-                            <span class="sr-only">Previous</span>
-                          </div>
-
-                          <div class="carousel-control-next seta_img" data-codimovel="20275" type="button" data-target="#carousel-card-20275" data-slide="next">
-                            <span class="carousel_setinha">›</span>
-                            <span class="sr-only">Next</span>
-                          </div>                            
-                        </div>
-
-                        <div class="card-body">
-                          <div class="container-endereco">
-                            <span>Centro | Cascavel</span>
-                            <div>Apartamento à venda no Centro</div>                                
-                            <div class="preco-imovel-card">                            
-                              <strong> R$ 1.570.000,00 </strong>
-                              <span>Código. 20275</span> 
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="card-footer">
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-area.svg" width="20"/>
-                            <span>169,73 m²</span>
-                            <span>Área principal</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-bed.svg" width="20"/>
-                              <span>2</span>
-                              <span>quarto(s)</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-garage.svg" width="20"/>
-                              <span>3</span>
-                              <span>Vaga(s)</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-shower.svg" width="20"/>
-                              <span>0</span>
-                              <span>banho(s)</span>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <!-- Fim do card de imóvel -->
-
-
-                  <!-- Início do card de imóvel -->
-                  <div data-slick-index="4" class="slick-slide slick-current slick-active" aria-hidden="false">
-                    <div class="btn-actions">
-                      <img src="./assets/icons/icon-favorito.svg" class="" id="icon-favoritos-20298" onclick="favoritar(20298)" />
-                    </div>
-                    <a href="" class="meuLink" data-codigo-mae="20298" data-empreendimento="0">
-                      <div class="link-card-imovel card card_imovel_style">
-                        <div id="carousel-card-20298" class="carousel slide" data-interval="false" data-ride="carousel">
-                          <div class="container-tag">
-                            <div class="tag-card">NOVO</div>
-                          </div>
-
-                          <div class="carousel-inner">
-                            <div class="carousel-item active">
-                              <img class="img-imovel" loading="lazy" src="https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994" data-src="https://picsum.photos/300/200" data-codimovel="20298" alt="Apartamento à venda no Centro: "/>
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="1">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20298" alt="Apartamento à venda no Centro:"/>
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="2">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20298" alt="Apartamento à venda no Centro: " />
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="3">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20298" alt="Apartamento à venda no Centro: " /> 
-                            </div>
-                            &lt;
-                            <div class="carousel-item" data-numerofoto="4">
-                              <img class="img-imovel" loading="lazy" src="https://picsum.photos/300/200" data-src="https://picsum.photos/300/200" data-codimovel="20298" alt="Apartamento à venda no Centro: "/>
-                            </div>
-                          </div>
-
-                          <div class="carousel-control-prev seta_img" data-codimovel="20298" type="button" data-target="#carousel-card-20298" data-slide="prev" >
-                            <span class="carousel_setinha">‹</span>
-                            <span class="sr-only">Previous</span>
-                          </div>
-
-                          <div class="carousel-control-next seta_img" data-codimovel="20298" type="button" data-target="#carousel-card-20298" data-slide="next">
-                            <span class="carousel_setinha">›</span>
-                            <span class="sr-only">Next</span>
-                          </div>                            
-                        </div>
-
-                        <div class="card-body">
-                          <div class="container-endereco">
-                            <span>Centro | Cascavel</span>
-                            <div>Apartamento à venda no Centro</div>                                
-                            <div class="preco-imovel-card">                            
-                              <strong> R$ 1.570.000,00 </strong>
-                              <span>Código. 20298</span> 
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="card-footer">
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-area.svg" width="20"/>
-                            <span>169,73 m²</span>
-                            <span>Área principal</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-bed.svg" width="20"/>
-                              <span>2</span>
-                              <span>quarto(s)</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-garage.svg" width="20"/>
-                              <span>3</span>
-                              <span>Vaga(s)</span>
-                          </div>
-                          <div class="container-icon">
-                            <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-shower.svg" width="20"/>
-                              <span>0</span>
-                              <span>banho(s)</span>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <!-- Fim do card de imóvel -->
-                  
+            <div class="card-body">
+              <div class="container-endereco">
+                <span>{{card.localizacao}}</span>
+                <div>{{card.titulo}}</div>                                
+                <div class="preco-imovel-card">                            
+                  <strong> {{card.preco}} </strong>
+                  <span>Código. {{card.codigo}}</span> 
                 </div>
               </div>
             </div>
-            <!-- end carrossel de destaques -->
-            <!-- <div class="col-12 col-sm-12 col-md-12">
-              <div class="d-flex justify-content-center align-item-center">
-                <img src="./assets/images/loading-buffering.gif" id="id-gif" class="margin-top-40 margin-bottom-60 lazyloaded" loading="lazy" width="32" height="32" alt="Loading" style="display: none"/>
+            <div class="card-footer">
+              <div class="container-icon">
+                <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-area.svg" width="20"/>
+                <span>{{card.area}}</span>
+                <span>Área principal</span>
               </div>
-            </div> -->
-
-            <div class="d-flex justify-content-center align-item-center">
-              <div class="arrow_circle">
-                <span>‹</span>
+              <div class="container-icon">
+                <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-bed.svg" width="20"/>
+                  <span>{{card.quartos}}</span>
+                  <span>quarto(s)</span>
               </div>
-              <div class="arrow_circle">
-                <span>›</span>
+              <div class="container-icon">
+                <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-garage.svg" width="20"/>
+                  <span>{{card.vagas}}</span>
+                  <span>Vaga(s)</span>
               </div>
-            </div> 
+              <div class="container-icon">
+                <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-shower.svg" width="20"/>
+                  <span>{{card.banhos}}</span>
+                  <span>banho(s)</span>
+              </div>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
-    </section>
+    </ng-container>
+  </div>
+</div>
