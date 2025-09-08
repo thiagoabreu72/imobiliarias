@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-12 text-center">
-      <h2 class="titulo_section color_titulo barra_bottom_center margin-top-20 margin-bottom-20">Imóveis em Destaque</h2>
+      <h2 class="titulo_section color_titulo barra_bottom_center margin-top-20 margin-bottom-20">
+        Imóveis em Destaque
+      </h2>
     </div>
     <div class="col-12 text-center margin-top-0 margin-bottom-20">
       <span class="">Veja abaixo nossas principais oportunidades</span>
@@ -16,7 +18,9 @@
           href="#tab_home_lista_comprar"
           role="tab"
           aria-controls="tab_home_lista_comprar"
-          aria-selected="true" >Comprar</a>
+          aria-selected="true"
+          >Comprar</a
+        >
       </li>
       <li class="nav-item">
         <a
@@ -25,7 +29,9 @@
           href="#tab_home_lista_alugar"
           role="tab"
           aria-controls="tab_home_lista_alugar"
-          aria-selected="false">Alugar</a>
+          aria-selected="false"
+          >Alugar</a
+        >
       </li>
       <li class="nav-item">
         <a
@@ -34,90 +40,30 @@
           href="#tab_home_lista_alugar"
           role="tab"
           aria-controls="tab_home_lista_alugar"
-          aria-selected="false">Super Destaque</a>
+          aria-selected="false"
+          >Super Destaque</a
+        >
       </li>
     </ul>
   </div>
-  <div class="slick-track">
-    <ng-container *ngFor="let card of visibleCards; let i = index">
-      <div class="slick-slide slick-current slick-active" aria-hidden="false">
-        <div class="btn-actions">
-          <img src="./assets/icons/icon-favorito.svg" class="" [id]="'icon-favoritos-' + card.codigo" (click)="favoritar(card.codigo)" />
-        </div>
-        <a href="" class="meuLink" [attr.data-codigo-mae]="card.codigo" data-empreendimento="0">
-          <div class="link-card-imovel card card_imovel_style">
-            <div [id]="'carousel-card-' + card.codigo" class="carousel slide" data-interval="false" data-ride="carousel">
-              <div class="container-tag">
-                <div class="tag-card">NOVO</div>
-              </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img class="img-imovel" loading="lazy" [src]="card.imgs[0]" [attr.data-codimovel]="card.codigo" alt="{{card.titulo}}"/>
-                </div>
-                <ng-container *ngFor="let img of card.imgs.slice(1); let idx = index">
-                  <div class="carousel-item" [attr.data-numerofoto]="idx+1">
-                    <img class="img-imovel" loading="lazy" [src]="img" [attr.data-codimovel]="card.codigo" alt="{{card.titulo}}"/>
-                  </div>
-                </ng-container>
-              </div>
-              <div class="carousel-control-prev seta_img" [attr.data-codimovel]="card.codigo" type="button" [attr.data-target]="'#carousel-card-' + card.codigo" data-slide="prev" >
-                <span class="carousel_setinha">‹</span>
-                <span class="sr-only">Previous</span>
-              </div>
-              <div class="carousel-control-next seta_img" [attr.data-codimovel]="card.codigo" type="button" [attr.data-target]="'#carousel-card-' + card.codigo" data-slide="next">
-                <span class="carousel_setinha">›</span>
-                <span class="sr-only">Next</span>
-              </div>                            
-            </div>
-            <div class="card-body">
-              <div class="container-endereco">
-                <span>{{card.localizacao}}</span>
-                <div>{{card.titulo}}</div>                                
-                <div class="preco-imovel-card">                            
-                  <strong> {{card.preco}} </strong>
-                  <span>Código. {{card.codigo}}</span> 
-                </div>
-              </div>
-            </div>
-            <div class="card-footer">
-              <div class="container-icon">
-                <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-area.svg" width="20"/>
-                <span>{{card.area}}</span>
-                <span>Área principal</span>
-              </div>
-              <div class="container-icon">
-                <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-bed.svg" width="20"/>
-                  <span>{{card.quartos}}</span>
-                  <span>quarto(s)</span>
-              </div>
-              <div class="container-icon">
-                <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-garage.svg" width="20"/>
-                  <span>{{card.vagas}}</span>
-                  <span>Vaga(s)</span>
-              </div>
-              <div class="container-icon">
-                <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-shower.svg" width="20"/>
-                  <span>{{card.banhos}}</span>
-                  <span>banho(s)</span>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-    </ng-container>
-  </div>
+
+  <app-card-imovel [cards]="cards!"></app-card-imovel>
 </div>
 <div class="container-setas d-flex justify-content-center mt-2">
-  <button class="arrow-lef-empreendimento arrow_circle seta_left_empreendimento"
-          (click)="prevCard()"
-          [disabled]="startIndex === 0"
-          aria-label="Anterior">
+  <button
+    class="arrow-lef-empreendimento arrow_circle seta_left_empreendimento"
+    (click)="prevCard()"
+    [disabled]="startIndex === 0"
+    aria-label="Anterior"
+  >
     <span class="carousel_setinha">‹</span>
   </button>
-  <button class="arrow-right-empreendimento arrow_circle seta_right_empreendimento"
-          (click)="nextCard()"
-          [disabled]="startIndex + visibleCards.length >= cards.length"
-          aria-label="Próximo">
+  <button
+    class="arrow-right-empreendimento arrow_circle seta_right_empreendimento"
+    (click)="nextCard()"
+    [disabled]="startIndex + visibleCards.length >= cards.length"
+    aria-label="Próximo"
+  >
     <span class="carousel_setinha">›</span>
   </button>
 </div>
