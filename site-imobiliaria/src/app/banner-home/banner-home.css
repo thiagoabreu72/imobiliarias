@@ -93,7 +93,7 @@
   width: 90%;
 }
 /* .btn-active-busca {
-  background-color: #857c5c;
+  background-color: #D4AF37;
   color: #fff;
 } */
 .buttom_finalidade_busca_home {
@@ -119,11 +119,11 @@
   padding: 10px;
 }
 .buttom_finalidade_busca_home:hover {
-  background-color: #857c5c;
+  background-color: #D4AF37;
   color: #fff;
 }
 .buttom_finalidade_busca_home.active-finalidade {
-  background-color: #857c5c;
+  background-color: #D4AF37;
   color: #fff;
 }
 @media (max-width: 720px) {
@@ -179,7 +179,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;    
-  background-color: #857c5c;
+  background-color: #D4AF37;
   border: none;
   height: 40px;
 }

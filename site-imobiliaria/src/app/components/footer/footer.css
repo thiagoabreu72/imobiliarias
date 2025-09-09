@@ -72,9 +72,9 @@
 }
 
 .list-group-item a:hover {
-  color: #857c5c !important; 
+  color: #D4AF37 !important; 
   text-decoration: underline !important;
-  text-decoration-color: #857c5c !important;
+  text-decoration-color: #D4AF37 !important;
   text-decoration-style: solid !important;
 }
 
