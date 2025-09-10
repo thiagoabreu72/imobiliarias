@@ -1,4 +1,11 @@
-
+:root {
+  --primary-black: #000000;
+  --primary-gold: #d4af37;
+  --primary-white: #ffffff;
+  --secondary-black: #2e2e2e;
+  --secondary-dark: #c1c1c1;
+  --secondary-yellow: #ffe89b;
+}
 .modal-desktop {
   /* display: none; */
   position: fixed;
@@ -32,7 +39,7 @@
   height: 40px;
   border-radius: 50%;
   transition: all ease 0.3s;
-  color: #fff;
+  color: var(--primary-white);
   background: #e42320;
   font-size: 18px;
 }
@@ -65,10 +72,10 @@
 .modal-desktop ul .list-titulo {
   margin-bottom: 1rem;
   font-size: 1rem;
-   color: #f2a000 !important;
+   color: var(--primary-gold) !important;
 }
 .modal-desktop ul a {
-  color: #fff;
+  color: var(--primary-white);
   font-size: 1rem;
 }
 .modal-desktop ul img {

@@ -1,4 +1,14 @@
+:root {
+  --primary-black: #000000;
+  --primary-gold: #d4af37;
+  --primary-white: #ffffff;
+  --secondary-black: #2e2e2e;
+  --secondary-dark: #c1c1c1;
+  --secondary-yellow: #ffe89b;
+}
+
 #banner_home {
+  background-color: var(--primary-black);
   background-image: url('../../assets/images/banner-home.webp');
   background-size: cover !important;
   background-position-y: top !important;
@@ -35,7 +45,7 @@
 }
 #banner_home .titulo_principal {
   font-family: 'Roboto-Regular', sans-serif;
-  color: #fff;
+  color: var(--primary-white);
   font-size: 2.5rem;
   margin-bottom: 10px;
   min-height: 80px;
@@ -101,13 +111,13 @@
   justify-content: center;
   align-items: center;
   font-weight: 0;
-  font-family: #a1a6bb;
+  font-family: var(--secondary-dark);
   font-size: 14px;
   width: auto;
   margin-right: 5px;
   margin-left: 5px;
   text-transform: uppercase;
-  background-color: #fff;
+  background-color: var(--primary-white);
   margin-bottom: 1rem;
   cursor: pointer;
   border-radius: 8px;
@@ -119,12 +129,12 @@
   padding: 10px;
 }
 .buttom_finalidade_busca_home:hover {
-  background-color: #D4AF37;
-  color: #fff;
+  background-color: var(--primary-gold);
+  color: var(--primary-white);
 }
 .buttom_finalidade_busca_home.active-finalidade {
-  background-color: #D4AF37;
-  color: #fff;
+  background-color: var(--primary-gold);
+  color: var(--primary-white);
 }
 @media (max-width: 720px) {
   .buttom_finalidade_busca_home {
@@ -161,14 +171,14 @@
 }
 
 .input-item .form-control::placeholder {
-  color: #a5a3a3;
+  color: var(--secondary-dark);
   font-size: 12px;
   opacity: 1;       
 }
 
 .input-item .input-group input {
-  color:  #a5a3a3;    
-  font-size: 12px;  
+  color:  var(--secondary-dark);
+  font-size: 12px;
 }
 
 .bt-buscar {
@@ -178,14 +188,14 @@
 .bt-buscar button {
   position: absolute;
   bottom: 0;
-  width: 100%;    
-  background-color: #D4AF37;
+  width: 100%;
+  background-color: var(--primary-gold);
   border: none;
   height: 40px;
 }
 
 .bt-buscar button:hover {
-   background-color: #6e6650;
+   background-color: var(--secondary-dark);
   box-shadow: 0 8px 16px -4px rgba(0,0,0,0.25);
 }
 
@@ -206,12 +216,12 @@
 }
 
 .busca-codigo-button {
-  background-color: #222328; 
+  background-color: var(--secondary-black); 
   border: none;  
 }
 
 .busca-codigo-button:hover {
-  background-color: #000000;  
+  background-color: var(--primary-black);  
 }
 
 

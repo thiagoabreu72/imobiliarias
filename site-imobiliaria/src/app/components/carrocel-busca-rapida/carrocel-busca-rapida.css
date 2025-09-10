@@ -1,6 +1,24 @@
+:root {
+  --primary-black: #000000;
+  --primary-gold: #d4af37;
+  --primary-white: #ffffff;
+  --secondary-black: #2e2e2e;
+  --secondary-dark: #c1c1c1;
+  --secondary-yellow: #ffe89b;
+}
+
 a{
   text-decoration: none;
 }
+
+h2, h3, h4, h5, h6 {
+ color: var(--primary-white);
+}
+
+.descricao {
+   color: var(--primary-white);
+}
+
 .back_primario {
   margin-top: 30px;
 }
@@ -15,7 +33,7 @@ a{
   margin: 10px auto 0px;
   width: 70px;
   height: 3px;
-  background:  #D4AF37;
+  background:  var(--primary-gold);
 }
 
 #carrossel_busca_rapida {
@@ -27,7 +45,7 @@ a{
   max-width: 100px;
   cursor: pointer;
   margin: 0 auto;
-  height: auto;
+  height: auto;  
 }
 
 .slick-slider {
@@ -80,9 +98,9 @@ a{
 }
 
 .slick-track a {
-    color: #000
+    color: var(--primary-white);
 }
-
+ 
 .slick-track:before,
 .slick-track:after {
   content: "";
@@ -163,6 +181,6 @@ a{
   color: rgba(0,0,0,0);
 }
 .slick-dots li.slick-active button:before {
-  color: #000;
+  color: var(--primary-black);
   opacity: 0.75;
 }
