@@ -64,6 +64,7 @@
   box-sizing: border-box;
   overflow-x: auto;
 }
+*/
 @media (max-width: 1398px) {
   .container {
     width: 100%;
@@ -81,7 +82,7 @@
     width: 100%;
     max-width: 100%;
   }
-}*/
+}
 
 .slick-track {
   display: flex;
