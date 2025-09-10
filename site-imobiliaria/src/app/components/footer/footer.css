@@ -1,12 +1,21 @@
+:root {
+  --primary-black: #000000;
+  --primary-gold: #d4af37;
+  --primary-white: #ffffff;
+  --secondary-black: #2e2e2e;
+  --secondary-dark: #c1c1c1;
+  --secondary-yellow: #ffe89b;
+}
+
 #footer {
-  background-color: #013c56;
-  color: #3a405b;
+  background-color: var(--secondary-black);
+  color: var(--primary-white);
   padding-top: 40px;
-  color: #fff;
+  color: var(--primary-white);
 }
 #footer .titulo_footer {
   font-family: "Roboto-Bold", sans-serif;
-  color: #fff;
+  color: var(--primary-white);
   font-size: 13px;
   line-height: 13px;
   text-transform: uppercase;
@@ -24,7 +33,7 @@
 }
 #footer ul li a {
   text-decoration: none;
-  color: #fff;
+  color: var(--primary-white)
 }
 #footer p {
   font-size: 14px;
@@ -36,13 +45,13 @@
   padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 10px;
-  border-top: solid #fff 1px;
+  border-top: solid var(--primary-white) 1px;
 }
 #footer a {
   text-decoration: none;
   font-size: 14px;
   line-height: 20px;
-  color: #fff;
+  color: var(--primary-white);
 }
 @media (max-width: 720px) {
   #footer {
@@ -72,9 +81,9 @@
 }
 
 .list-group-item a:hover {
-  color: #D4AF37 !important; 
+  color: var(--primary-gold) !important; 
   text-decoration: underline !important;
-  text-decoration-color: #D4AF37 !important;
+  text-decoration-color: var(--primary-gold) !important;
   text-decoration-style: solid !important;
 }
 
