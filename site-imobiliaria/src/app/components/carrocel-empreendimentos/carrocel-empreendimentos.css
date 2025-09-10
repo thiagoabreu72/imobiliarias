@@ -7,6 +7,10 @@
   --secondary-yellow: #ffe89b;
 }
 
+.container {
+  margin-bottom: 100px;
+}
+
 span {
   color: var(--primary-white);
 }

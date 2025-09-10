@@ -1,7 +1,20 @@
- 
-a {
-    color: #000 !important;
+:root {
+  --primary-black: #000000;
+  --primary-gold: #d4af37;
+  --primary-white: #ffffff;
+  --secondary-black: #2e2e2e;
+  --secondary-dark: #c1c1c1;
+  --secondary-yellow: #ffe89b;
 }
+
+a {
+    text-decoration: none !important;
+}
+ 
+h1, h2, h3, h4, h5, h6, span, a {
+    color: var(--primary-white) !important;
+}
+
 #container_mais_filtros .nav-pills .nav-link {
   font-size: 1rem;
 }
@@ -10,9 +23,19 @@ a {
   margin: 0 auto;
 }
 
+.botoes_lista_imoveis_home li a, .botoes_lista_imoveis_home li a {
+  background-color: var(--secondary-dark) !important;
+  color: var(--primary-white) !important;
+}
+
+.botoes_lista_imoveis_home li a:hover, .botoes_lista_imoveis_home li a:hover {
+  background-color: var(--secondary-black) !important;
+  color: var(--primary-white) !important;
+}
+
 .botoes_lista_imoveis_home li a.active, .botoes_lista_imoveis_home li a.active:focus {
-    background-color: #D4AF37 !important;
-    color: #fff !important;
+    background-color: var(--primary-gold) !important;
+    color: var(--primary-white) !important;
 }
 
 .titulo_section {
@@ -24,7 +47,7 @@ a {
   margin: 10px auto 0px;
   width: 70px;
   height: 3px;
-  background: #D4AF37;
+  background: var(--primary-gold);
 }
 .margin-top-10 {
   margin-top: 10px;
@@ -43,15 +66,15 @@ a {
   font-size: 0.765rem;
   font-style: normal;
   font-weight: 500;
-  color: #3a405b;
+  color: var(--primary-white);
   text-decoration: none !important;
   margin-left: 3px;
   margin-right: 3px;
   cursor: pointer;
 }
 .nav-link:hover {
-  color: #3a405b;
-  background-color: #e7e8ed;
+  color: var(--primary-white);
+  background-color: var(--secondary-dark);
 }
 .box_link_mais_filtros {
   padding: 5px 5px 5px 0px;
