@@ -61,7 +61,7 @@
   width: 5px;
 }
 .modal-desktop .container-lista-menu::-webkit-scrollbar-thumb {
-  background-color: green;
+  background-color: var(--primary-gold);
   border-radius: 2.5px;
   height: 10px;
 }
