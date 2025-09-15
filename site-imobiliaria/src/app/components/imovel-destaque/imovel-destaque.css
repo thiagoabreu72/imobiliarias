@@ -1,15 +1,28 @@
+:root {
+--primary-black: #000000;
+  --primary-gold: #d4af37;
+  --primary-white: #ffffff;
+  --secondary-black: #2e2e2e;
+  --secondary-dark: #c1c1c1;
+  --secondary-yellow: #ffe89b;
+}
+
+h1, h2, h3, h4, h5, h6, span {
+ color: var(--primary-white);
+}
+
 .botoes_lista_imoveis_home {
   width: max-content;
   margin: 0 auto;
 }
 
 .botoes_lista_imoveis_home li a.active, .botoes_lista_imoveis_home li a.active:focus {
-    background-color: #D4AF37 !important;
-    color: #fff !important;
+    background-color: var(--primary-gold) !important;
+    color: var(--primary-white) !important;
 }
 
 .botoes_lista_imoveis_home li a{
-  background-color: #bdbdbd;
+  background-color: var(--secondary-dark);
 }
 
 
@@ -18,15 +31,15 @@
   font-size: 0.765rem;
   font-style: normal;
   font-weight: 500;
-  color: #3a405b;
+  color: var(--primary-white) !important;
   text-decoration: none !important;
   margin-left: 3px;
   margin-right: 3px;
   cursor: pointer;
 }
 .botoes_lista_imoveis_home .nav-link:hover {
-  color: #3a405b;
-  background-color: #e7e8ed;
+  color: var(--primary-white);
+  background-color: var(--secondary-black);
 }
 .botoes_lista_imoveis_home .nav-pills .nav-link {
   font-size: 1rem;
@@ -88,7 +101,7 @@
   margin-right: 24px;
   margin-bottom: 16px;
   border-radius: 16px;
-  background: #fff;
+  background: var(--primary-white);
   box-shadow: 0 4px 12px rgba(30,30,30,0.13);
 }
 * {
@@ -96,7 +109,7 @@
 }
 
 a {
-  color: #000 !important;
+  color: var(--primary-black) !important;
   text-decoration: none;
 }
 
@@ -115,23 +128,23 @@ a {
 }
 
 .botao_destaque_home {
-  background-color: #D4AF37;
-  color: #fff;
+  background-color: var(--primary-gold);
+  color: var(--primary-white);
   margin-left: 5px;
   margin-right: 5px;
   font-size: 14px;
 }
 
 .botao_destaque_home .btn-active {
-  background-color: #D4AF37;
-  color: #fff;
+  background-color: var(--primary-gold);
+  color: var(--primary-white);
   border: none !important;
 }
 
 .botao_destaque_home:hover,
 .botao_destaque_home:focus {
-  color: #3a405b;
-  background-color: #e7e8ed;
+  color: var(--primary-white);
+  background-color: var(--secondary-dark);
 }
 
 .barra_bottom_center:after {
@@ -140,7 +153,7 @@ a {
   margin: 10px auto 0px;
   width: 70px;
   height: 3px;
-  background: #D4AF37;
+  background: var(--primary-gold);
 }
 
 #carrossel_destaques_imoveis {
@@ -181,7 +194,7 @@ a {
 .card_imovel_style {
   /* border: none;
   border-radius: 12px; */
-  background: #fff;
+  background: var(--primary-white);
 }
 
 .card-body {
@@ -207,7 +220,7 @@ a {
 }
 
 .preco-imovel-card strong {
-  color: #D4AF37;
+  color: var(--primary-gold);
   font-size: 1rem;
   font-weight: 700;
 }
@@ -245,8 +258,8 @@ a {
 }
 
 .tag-card {
-  background: #2574a9;
-  color: #fff;
+  background: var(--secondary-yellow);
+  color: var(--primary-white);
   font-size: 0.7rem;
   padding: 5px 12px;
   border-radius: 8px;
@@ -259,7 +272,7 @@ a {
 .carousel-inner {
   border-radius: 5px 5px 0 0;
   overflow: hidden;
-  background-color: #ececec;
+  background-color: var(--secondary-dark);
 }
 
 .img-imovel {
@@ -267,7 +280,7 @@ a {
   height: 250px;
   object-fit: cover;
   border-radius: 5px 5px 0 0;
-  background: #eaeaea;
+  background: var(--secondary-dark);
   display: block;
 }
 
@@ -294,7 +307,7 @@ a {
   right: 8px;
 }
 .carousel_setinha {
-  color: #505050;
+  color: var(--secondary-dark);
   /* font-weight: 600; */
   font-size:2rem;
   line-height: 1;
@@ -320,15 +333,15 @@ a {
 }
 
 .arrow_circle {
-  background: #fff;
+  background: var(--primary-white);
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  box-shadow: 0px 0px 5px 0px #bdbdbd;
-  color: #505050;
+  box-shadow: 0px 0px 5px 0px var(--secondary-dark);
+  color: var(--primary-white);
   margin: 0 5px;
   cursor: pointer;
   border: none;
@@ -337,7 +350,7 @@ a {
 }
 
 .arrow_circle:hover {
-  background-color: #D4AF37;
+  background-color: var(--primary-gold);
 }
 
 @media (max-width: 575px) {
@@ -398,4 +411,118 @@ a {
   .img-imovel {
     height: 120px;
   }
+}
+
+
+:root {
+  --primary-black: #000000;
+  --primary-gold: #d4af37;
+  --primary-white: #ffffff;
+  --secondary-black: #2e2e2e;
+  --secondary-dark: #c1c1c1;
+  --secondary-yellow: #ffe89b;
+}
+
+.botoes_lista_imoveis_home {
+  width: max-content;
+  margin: 0 auto;
+}
+.botoes_lista_imoveis_home li a.active, .botoes_lista_imoveis_home li a.active:focus {
+  background-color: var(--primary-gold) !important;
+  color: var(--primary-white) !important;
+}
+.botoes_lista_imoveis_home li a {
+  background-color: var(--secondary-dark);
+}
+.botoes_lista_imoveis_home .nav-link {
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 0.765rem;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--primary-white) !important;
+  text-decoration: none !important;
+  margin-left: 3px;
+  margin-right: 3px;
+  cursor: pointer;
+}
+.botoes_lista_imoveis_home .nav-link:hover {
+  color: var(--primary-white);
+  background-color: var(--secondary-black);
+}
+.botoes_lista_imoveis_home .nav-pills .nav-link {
+  font-size: 1rem;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+.titulo_section {
+  font-size: 1.5rem;
+}
+.barra_bottom_center:after {
+  content: '';
+  display: block;
+  margin: 10px auto 0px;
+  width: 70px;
+  height: 3px;
+  background: var(--primary-gold);
+}
+.margin-top-10 {
+  margin-top: 10px;
+}
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+.botao_destaque_home {
+  background-color: var(--primary-gold);
+  color: var(--primary-white);
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 14px;
+}
+.botao_destaque_home .btn-active {
+  background-color: var(--primary-gold);
+  color: var(--primary-white);
+  border: none !important;
+}
+.botao_destaque_home:hover,
+.botao_destaque_home:focus {
+  color: var(--primary-white);
+  background-color: var(--secondary-dark);
+}
+.container-setas {
+  margin-top: 16px;
+}
+.arrow_circle {
+  background: var(--primary-white);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  box-shadow: 0px 0px 5px 0px var(--secondary-dark);
+  color: var(--primary-white);
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+.arrow_circle:hover {
+  background-color: var(--primary-gold);
+}
+.carousel_setinha {
+  color: var(--secondary-dark);
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

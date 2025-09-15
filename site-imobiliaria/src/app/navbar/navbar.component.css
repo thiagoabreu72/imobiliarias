@@ -1,5 +1,13 @@
+:root {
+  --primary-black: #000000;
+  --primary-gold: #d4af37;
+  --primary-white: #ffffff;
+  --secondary-black: #2e2e2e;
+  --secondary-dark: #c1c1c1;
+  --secondary-yellow: #ffe89b;
+}
 #header {
-  background-color: #fff !important;
+  background-color: var(--primary-black)   !important;
 }
 .container-fluid {
   padding-left: 5%;
@@ -17,9 +25,8 @@
 }
 
 .btn-menu-m {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: var(--primary-black);
   border: none;
-  color: #222328;
   padding: 0px;
 }
 
@@ -42,15 +49,16 @@
   font-size: 0.765rem;
   font-style: normal;
   font-weight: 500;
-  color: #3a405b;
+  color: var(--primary-white);
   text-decoration: none !important;
   margin-left: 3px;
   margin-right: 3px;
   cursor: pointer;
+  border-radius: 2px;
 }
 .nav-link:hover {
-  color: #3a405b;
-  background-color: #e7e8ed;
+  color: var(--secondary-black);
+  background-color: var(--secondary-dark);
 }
 
 @media (max-width: 1142px) {
