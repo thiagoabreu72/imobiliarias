@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { Imovel } from '../../interfaces/imovel.interface';
+import { ImovelCard } from '../../interfaces/imovel.interface';
 
 @Component({
   selector: 'app-card-imovel',
@@ -9,7 +9,7 @@ import { Imovel } from '../../interfaces/imovel.interface';
   styleUrl: './card-imovel.css',
 })
 export class CardImovel implements OnInit {
-  @Input() cards: Imovel[] = [];
+  @Input() cards: ImovelCard[] = [];
 
   visibleCards!: any;
   startIndex = 0;

@@ -1,0 +1,110 @@
+<div class="container-xl my-5" *ngIf="propertyDetails">
+
+  <section>
+    <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner rounded">
+        <div class="carousel-item" *ngFor="let image of images; let i = index" [class.active]="i === 0">
+          <img [src]="image.itemImageSrc" class="d-block w-100 main-property-image" [alt]="image.alt">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">{{ uiText.carousel.previous }}</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">{{ uiText.carousel.next }}</span>
+      </button>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center mt-2 gap-2">
+      <a *ngFor="let image of images; let i = index" class="thumbnail-item" [class.active]="i === 0" data-bs-target="#propertyCarousel" [attr.data-bs-slide-to]="i">
+        <img [src]="image.thumbnailImageSrc" class="img-fluid rounded" />
+      </a>
+    </div>
+  </section>
+
+  <div class="row mt-5 g-lg-5">
+
+    <div class="col-12 col-lg-8">
+      <section>
+        <h1 class="h2 fw-bold">{{ propertyDetails.title }}</h1>
+        <div class="d-flex align-items-center text-muted mt-2">
+          <img src="assets/icons/icons-tema-clean/icon-location.svg" alt="Ícone de localização" class="location-icon me-2">
+          <span>{{ propertyDetails.location }}</span>
+        </div>
+
+        <div class="row stats-bar justify-content-around text-center my-4 bg-light rounded gy-4">
+          <div class="col-auto d-flex flex-column align-items-center" *ngFor="let stat of propertyDetails.stats">
+            <img [src]="'assets/icons/icons-tema-clean/' + stat.icon" [alt]="'Ícone de ' + stat.label" class="info-icon">
+            <p class="mb-0 small mt-2">{{ stat.value }} {{ stat.label }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-4">
+        <h2 class="h4 fw-semibold border-bottom pb-2 mb-3">{{ uiText.sectionTitles.description }}</h2>
+        <p class="text-secondary">{{ propertyDetails.description }}</p>
+      </section>
+
+      <section class="mt-4">
+        <h2 class="h4 fw-semibold border-bottom pb-2 mb-3">{{ uiText.sectionTitles.features }}</h2>
+        <div class="row">
+          <div class="col-12 col-md-4 mb-3 mb-md-0">
+            <h3 class="h6 fw-medium">{{ uiText.featureCategories.internal }}</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex align-items-center mb-2" *ngFor="let feature of propertyDetails.features.internal">
+                <img src="assets/icons/icons-tema-clean/icon-check.svg" alt="Ícone de check" class="check-icon me-2"> {{ feature }}
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-4 mb-3 mb-md-0">
+            <h3 class="h6 fw-medium">{{ uiText.featureCategories.external }}</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex align-items-center mb-2" *ngFor="let feature of propertyDetails.features.external">
+                <img src="assets/icons/icons-tema-clean/icon-check.svg" alt="Ícone de check" class="check-icon me-2"> {{ feature }}
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-4">
+            <h3 class="h6 fw-medium">{{ uiText.featureCategories.extra }}</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex align-items-center mb-2" *ngFor="let feature of propertyDetails.features.extra">
+                <img src="assets/icons/icons-tema-clean/icon-check.svg" alt="Ícone de check" class="check-icon me-2"> {{ feature }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="col-12 col-lg-4 mt-4 mt-lg-0">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <p class="card-title text-muted small">Código do Imóvel: {{ propertyDetails.code }}</p>
+          <h3 class="card-subtitle text-primary fw-bold h2 mb-1">{{ propertyDetails.price }}</h3>
+          <p class="text-muted small">Taxas mensais: {{ propertyDetails.monthlyFee }}</p>
+
+          <form class="d-grid gap-3 mt-4">
+            <input type="text" class="form-control form-control-lg" placeholder="Nome Completo">
+            <input type="email" class="form-control form-control-lg" placeholder="Email">
+            <input type="tel" class="form-control form-control-lg" placeholder="Telefone">
+            <textarea class="form-control" rows="4" placeholder="Mensagem"></textarea>
+            <button type="submit" class="btn btn-primary btn-lg">Tenho Interesse</button>
+            <button type="button" class="btn btn-secondary btn-lg">Agendar Visita</button>
+          </form>
+
+          <div class="d-flex flex-wrap justify-content-center align-items-center mt-4 gap-2">
+            <span class="small text-muted">Compartilhe este imóvel</span>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn-social"><img src="assets/icons/redes-sociais/icon-whatsapp-branco.svg" alt="WhatsApp"></a>
+              <a href="#" class="btn-social"><img src="assets/icons/redes-sociais/icon-facebook.svg" alt="facebook"></a>
+              <a href="#" class="btn-social"><img src="assets/icons/redes-sociais/icon-instagram.svg" alt="instagram"></a>
+              <a href="#" class="btn-social"><img src="assets/icons/icons-tema-clean/icon-link.svg" alt="Link"></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

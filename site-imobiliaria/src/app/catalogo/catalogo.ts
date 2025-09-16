@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CardGeral } from '../card-geral/card-geral';
 import { MultiSelectDropdownComponent } from '../components/multi-select-dropdown.component/multi-select-dropdown.component';
 import { FormsModule } from '@angular/forms';
+import { Service } from '../services/service';
 
 @Component({
   selector: 'app-catalogo',
@@ -11,6 +12,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './catalogo.css',
 })
 export class Catalogo {
+  constructor(private service: Service) {
+    this.service.buscarTiposImoveis().subscribe((data) => {
+      this.tipoImovel = data;
+      console.log(this.tipoImovel);
+    });
+  }
+
   tipoImovelOptions = [
     { label: 'Apartamento', value: 'apartamento' },
     { label: 'Casa', value: 'casa' },

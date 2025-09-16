@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardImovel } from '../card-imovel/card-imovel';
-import { Imovel } from '../../interfaces/imovel.interface';
+import { Imovel, ImovelCard } from '../../interfaces/imovel.interface';
 
 @Component({
   selector: 'app-imovel-destaque',
@@ -13,7 +13,7 @@ export class ImovelDestaque {
   getFimIntervalo(): number {
     return Math.min(this.startIndex + this.visibleCards.length, this.cards.length);
   }
-  cards: Imovel[] = [
+  cards: ImovelCard[] = [
     {
       codigo: 20257,
       imgs: [
@@ -153,6 +153,7 @@ export class ImovelDestaque {
   ];
 
   visibleCards = this.cards.slice(0, 4);
+  // visibleCards = this.cards;
   startIndex = 0;
 
   nextCard() {

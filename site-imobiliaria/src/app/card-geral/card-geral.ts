@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Imovel } from '../interfaces/imovel.interface';
+import { ImovelCard } from '../interfaces/imovel.interface';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './card-geral.css',
 })
 export class CardGeral {
-  cards: Imovel[] = [
+  cards: ImovelCard[] = [
     {
       codigo: 20257,
       imgs: [
