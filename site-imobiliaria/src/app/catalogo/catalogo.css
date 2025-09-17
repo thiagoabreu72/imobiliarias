@@ -1,0 +1,40 @@
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+
+.input-group input {
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+.input-item{
+  flex-direction: row;
+  flex: 2;
+}
+
+.input-item label {
+  font-size: 12px;
+}
+
+.input-item .form-control {
+  height: 40px;
+  font-size: 16px;
+}
+
+.input-item .form-control::placeholder {
+  color: var(--secondary-dark);
+  font-size: 12px;
+  opacity: 1;
+}
+
+.input-item .input-group input {
+  color:  var(--secondary-dark);
+  font-size: 12px;
+}
+

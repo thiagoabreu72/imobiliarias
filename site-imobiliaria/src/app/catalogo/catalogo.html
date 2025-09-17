@@ -1,0 +1,56 @@
+<div style="display: grid; grid-template-columns: 12% 88%; margin-top: 1.5rem">
+  <div style="background-color: var(--secondary-black); width: auto; padding: 15px">
+    <app-multi-select-dropdown
+      [label]="'Tipo de Imóvel'"
+      [options]="tipoImovelOptions"
+    ></app-multi-select-dropdown>
+
+    <app-multi-select-dropdown
+      [label]="'Cidade'"
+      [options]="cidadesOptions"
+    ></app-multi-select-dropdown>
+
+    <app-multi-select-dropdown
+      [label]="'Quartos'"
+      [options]="quantidadeQuartos"
+    ></app-multi-select-dropdown>
+
+    <app-multi-select-dropdown
+      [label]="'Banheiros'"
+      [options]="quantidadeBanheiros"
+    ></app-multi-select-dropdown>
+
+    <app-multi-select-dropdown
+      [label]="'Tipo de Imóvel'"
+      [options]="tipoImovel"
+    ></app-multi-select-dropdown>
+    <br />
+    <div>
+      <label class="mb-0" style="color:#fff">Valor</label>
+      <div class="input-group">
+        <input
+          type="text"
+          placeholder="Valor inicial"
+          (input)="mascaraValor(valorInicial, 'I')"
+          [(ngModel)]="valorInicial"
+        />
+        <input
+          type="text"
+          placeholder="Valor final"
+          (input)="mascaraValor(valorFinal, 'F')"
+          [(ngModel)]="valorFinal"
+        />
+      </div>
+    </div>
+
+    <div>
+      <button type="button" (click)="buscar()">Buscar</button>
+    </div>
+  </div>
+  <div>
+    <div style="padding: 0 10px 10px 10px">
+      <h1 class="texto-topo-busca" style="color: #fff">737 Imóveis à venda em Itapema</h1>
+    </div>
+    <app-card-geral></app-card-geral>
+  </div>
+</div>

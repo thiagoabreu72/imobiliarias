@@ -1,0 +1,114 @@
+<div class="slick-track">
+  <ng-container *ngFor="let card of visibleCards; let i = index">
+    <div class="slick-slide slick-current slick-active" aria-hidden="false">
+      <div class="btn-actions">
+        <img
+          src="./assets/icons/icon-favorito.svg"
+          class=""
+          [id]="'icon-favoritos-' + card.codigo"
+          (click)="favoritar(card.codigo!)"
+        />
+      </div>
+      <a href="" class="meuLink" [attr.data-codigo-mae]="card.codigo" data-empreendimento="0">
+        <div class="link-card-imovel card card_imovel_style">
+          <div
+            [id]="'carousel-card-' + card.codigo"
+            class="carousel slide"
+            data-interval="false"
+            data-ride="carousel"
+          >
+            <div class="container-tag">
+              <div class="tag-card">NOVO</div>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  class="img-imovel"
+                  loading="lazy"
+                  [src]="card.imgs[0]"
+                  [attr.data-codimovel]="card.codigo"
+                  alt="{{ card.titulo }}"
+                />
+              </div>
+              <ng-container *ngFor="let img of card.imgs.slice(1); let idx = index">
+                <div class="carousel-item" [attr.data-numerofoto]="idx + 1">
+                  <img
+                    class="img-imovel"
+                    loading="lazy"
+                    [src]="img"
+                    [attr.data-codimovel]="card.codigo"
+                    alt="{{ card.titulo }}"
+                  />
+                </div>
+              </ng-container>
+            </div>
+            <div
+              class="carousel-control-prev seta_img"
+              [attr.data-codimovel]="card.codigo"
+              type="button"
+              [attr.data-target]="'#carousel-card-' + card.codigo"
+              data-slide="prev"
+            >
+              <span class="carousel_setinha">‹</span>
+              <span class="sr-only">Previous</span>
+            </div>
+            <div
+              class="carousel-control-next seta_img"
+              [attr.data-codimovel]="card.codigo"
+              type="button"
+              [attr.data-target]="'#carousel-card-' + card.codigo"
+              data-slide="next"
+            >
+              <span class="carousel_setinha">›</span>
+              <span class="sr-only">Next</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="container-endereco">
+              <span>{{ card.localizacao }}</span>
+              <div>{{ card.titulo }}</div>
+              <div class="preco-imovel-card">
+                <strong> {{ card.preco }} </strong>
+                <span>Código. {{ card.codigo }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="container-icon">
+              <img
+                class="lazyload"
+                src="./assets/icons/icons-tema-clean/icon-area.svg"
+                width="20"
+              />
+              <span>{{ card.area }}</span>
+              <span>Área principal</span>
+            </div>
+            <div class="container-icon">
+              <img class="lazyload" src="./assets/icons/icons-tema-clean/icon-bed.svg" width="20" />
+              <span>{{ card.quartos }}</span>
+              <span>quarto(s)</span>
+            </div>
+            <div class="container-icon">
+              <img
+                class="lazyload"
+                src="./assets/icons/icons-tema-clean/icon-garage.svg"
+                width="20"
+              />
+              <span>{{ card.vagas }}</span>
+              <span>Vaga(s)</span>
+            </div>
+            <div class="container-icon">
+              <img
+                class="lazyload"
+                src="./assets/icons/icons-tema-clean/icon-shower.svg"
+                width="20"
+              />
+              <span>{{ card.banhos }}</span>
+              <span>banho(s)</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </ng-container>
+</div>

@@ -1,18 +1,14 @@
 import { Component } from '@angular/core';
+import { ImovelCard } from '../interfaces/imovel.interface';
 import { CommonModule } from '@angular/common';
-import { CardImovel } from '../card-imovel/card-imovel';
-import { Imovel, ImovelCard } from '../../interfaces/imovel.interface';
 
 @Component({
-  selector: 'app-imovel-destaque',
-  imports: [CommonModule, CardImovel],
-  templateUrl: './imovel-destaque.html',
-  styleUrl: './imovel-destaque.css',
+  selector: 'app-card-geral',
+  imports: [CommonModule],
+  templateUrl: './card-geral.html',
+  styleUrl: './card-geral.css',
 })
-export class ImovelDestaque {
-  getFimIntervalo(): number {
-    return Math.min(this.startIndex + this.visibleCards.length, this.cards.length);
-  }
+export class CardGeral {
   cards: ImovelCard[] = [
     {
       codigo: 20257,
@@ -152,22 +148,14 @@ export class ImovelDestaque {
     },
   ];
 
-  visibleCards = this.cards.slice(0, 4);
-  // visibleCards = this.cards;
+  visibleCards!: any;
   startIndex = 0;
 
-  nextCard() {
-    if (this.startIndex + 4 < this.cards.length) {
-      this.startIndex++;
-      this.visibleCards = this.cards.slice(this.startIndex, this.startIndex + 4);
-    }
-  }
-
-  prevCard() {
-    if (this.startIndex > 0) {
-      this.startIndex--;
-      this.visibleCards = this.cards.slice(this.startIndex, this.startIndex + 4);
-    }
+  ngOnInit(): void {
+    // this.visibleCards = this.cards.slice(0, 4);
+    this.visibleCards = this.cards;
+    console.log(this.cards);
+    console.log(this.visibleCards);
   }
 
   favoritar(codigo: number) {

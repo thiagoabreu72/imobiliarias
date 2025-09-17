@@ -48,10 +48,17 @@ input, textarea, button, select {
 }
 
 .check-icon {
+<<<<<<< HEAD
   width: 20px; 
   height: 20px;
   filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
   user-select: none; 
+=======
+  width: 20px;
+  height: 20px;
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+  user-select: none;
+>>>>>>> main
 }
 
 .btn-social {
@@ -85,7 +92,11 @@ input, textarea, button, select {
 }
 
 .thumbnail-item {
+<<<<<<< HEAD
   flex: 0 0 90px; 
+=======
+  flex: 0 0 90px;
+>>>>>>> main
   max-width: 120px;
   height: 65px;
   cursor: pointer;
@@ -112,4 +123,8 @@ input, textarea, button, select {
 
 .stats-bar {
   padding: 1.5rem 1rem 1.25rem 1rem;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main

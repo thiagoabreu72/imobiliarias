@@ -5,12 +5,12 @@ import { Footer } from "../components/footer/footer";
 import { MaisFiltros } from "../components/mais-filtros/mais-filtros";
 import { CarrocelEmpreendimentos } from "../components/carrocel-empreendimentos/carrocel-empreendimentos";
 import { ImovelDestaque } from "../components/imovel-destaque/imovel-destaque";
-import { CardImovel } from "../components/card-imovel/card-imovel";
+// import { CardImovel } from "../components/card-imovel/card-imovel";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [BannerHome, CarrocelBuscaRapida, Footer, MaisFiltros, CarrocelEmpreendimentos, ImovelDestaque, CardImovel],
+  imports: [BannerHome, CarrocelBuscaRapida, Footer, MaisFiltros, CarrocelEmpreendimentos, ImovelDestaque],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

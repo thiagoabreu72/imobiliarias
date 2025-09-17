@@ -1,4 +1,11 @@
-/* CSS da Home será adaptado do site original */
+:root {
+  --primary-black: #000000;
+  --primary-gold: #d4af37;
+  --primary-white: #ffffff;
+  --secondary-black: #2e2e2e;
+  --secondary-dark: #c1c1c1;
+  --secondary-yellow: #ffe89b;
+}
 .home-wrapper {
   width: 100%;
   min-height: 100vh;
