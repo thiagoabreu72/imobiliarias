@@ -1,66 +1,136 @@
-body {
-  color: #2E2E2E;
-  font-family: 'Montserrat', sans-serif;
+:host {
+  --cor-fundo: #000000;
+  --cor-texto-principal: #FFFFFF;
+  --cor-texto-secundario: #C1C1C1; /* Cinza claro para textos de apoio */
+  --cor-ouro: #D4AF37;
+  --cor-cinza-painel: #2E2E2E; /* Cinza escuro para painéis e cards */
+  --cor-borda: #444;
+  --fonte-titulo: 'Cinzel', serif;
+  --fonte-corpo: 'Montserrat', sans-serif;
 }
 
-input, textarea, button, select {
-  font-family: inherit;
+/* 2. ESTILOS GERAIS DA PÁGINA */
+.container-xl {
+  color: var(--cor-texto-principal);
+  font-family: var(--fonte-corpo);
 }
 
-.text-primary {
-  color: #D4AF37 !important;
+/* Títulos H1, H2, H3 */
+h1, h2, h3 {
+  font-family: var(--fonte-titulo); /* Títulos com Cinzel para elegância */
+  color: var(--cor-texto-principal);
+  font-weight: bold;
 }
 
-.btn-primary {
-  color: #000000;
-  background-color: #D4AF37;
-  border-color: #D4AF37;
+/* Borda inferior dos títulos de seção */
+h2.border-bottom {
+  border-bottom-color: var(--cor-borda) !important;
 }
 
-.btn-primary:hover {
-  color: #000000;
-  background-color: #c19a2f;
-  border-color: #b8912c;
+/* Textos secundários e parágrafos */
+p.text-secondary, .text-muted {
+  color: var(--cor-texto-secundario) !important;
 }
 
-.btn-secondary {
-  color: #FFFFFF;
-  background-color: #2E2E2E;
-  border-color: #2E2E2E;
+/* 3. BARRA DE STATS (Área, Quartos, etc.) */
+.stats-bar {
+  background-color: var(--cor-cinza-painel) !important; /* Fundo cinza escuro */
+  padding: 1.5rem 1rem;
 }
-
-.btn-secondary:hover {
-  color: #FFFFFF;
-  background-color: #4a4a4a;
-  border-color: #4a4a4a;
+.stats-bar p {
+    color: var(--cor-texto-principal); /* Garante que o texto seja branco */
 }
-
 .info-icon {
   width: 28px;
   height: 28px;
+  /* Filtro CSS para deixar o ícone dourado */
   filter: invert(82%) sepia(26%) saturate(3048%) hue-rotate(352deg) brightness(91%) contrast(87%);
 }
 
-.location-icon {
+/* 4. ÍCONES DE CHECK E LOCALIZAÇÃO */
+.location-icon, .check-icon {
   width: 20px;
   height: 20px;
+  /* Filtro CSS para deixar o ícone dourado */
   filter: invert(82%) sepia(26%) saturate(3048%) hue-rotate(352deg) brightness(91%) contrast(87%);
 }
 
-.check-icon {
-<<<<<<< HEAD
-  width: 20px; 
-  height: 20px;
-  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
-  user-select: none; 
-=======
-  width: 20px;
-  height: 20px;
-  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
-  user-select: none;
->>>>>>> main
+/* 5. CARD LATERAL DE CONTATO */
+.card {
+  background-color: var(--cor-cinza-painel) !important; /* Fundo cinza escuro */
+  border: 1px solid var(--cor-borda);
 }
 
+.card-title {
+  color: var(--cor-texto-secundario);
+}
+
+.card-subtitle {
+  color: var(--cor-ouro) !important; /* Preço em dourado */
+}
+
+/* Formulário de Contato */
+.form-control {
+  background-color: #3a3a3a;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-principal);
+}
+.form-control:focus {
+  background-color: #3a3a3a;
+  color: var(--cor-texto-principal);
+  border-color: var(--cor-ouro);
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+.form-control::placeholder {
+  color: var(--cor-placeholder);
+}
+
+/* Botões do Formulário */
+.btn-primary {
+  color: var(--cor-texto-escuro) !important; /* Texto preto para contraste */
+  background-color: var(--cor-ouro) !important;
+  border-color: var(--cor-ouro) !important;
+  font-weight: bold;
+}
+.btn-primary:hover {
+  filter: brightness(0.9);
+}
+
+.btn-secondary {
+  color: var(--cor-texto-principal) !important;
+  background-color: #555 !important;
+  border-color: #555 !important;
+  font-weight: bold;
+}
+.btn-secondary:hover {
+  background-color: #666 !important;
+  border-color: #666 !important;
+}
+
+/* 6. CARROSSEL E THUMBNAILS */
+.main-property-image {
+  height: 60vh;
+  object-fit: cover;
+  width: 100%;
+}
+.thumbnail-item {
+  flex: 0 0 90px;
+  max-width: 120px;
+  height: 65px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
+  border: 2px solid transparent;
+  padding: 0;
+}
+.thumbnail-item:hover { opacity: 1; }
+.thumbnail-item.active {
+  opacity: 1;
+  border-color: var(--cor-ouro); /* Borda dourada na thumbnail ativa */
+}
+.thumbnail-item img { width: 100%; height: 100%; object-fit: cover; }
+
+/* 7. BOTÕES DE COMPARTILHAMENTO */
 .btn-social {
   width: 38px;
   height: 38px;
@@ -70,61 +140,9 @@ input, textarea, button, select {
   border-radius: 50%;
   margin: 0 4px;
   padding: 0;
-  background-color: #2E2E2E;
-  border: 1px solid #2E2E2E;
+  background-color: #3a3a3a; /* Fundo cinza escuro */
+  border: 1px solid #3a3a3a;
   transition: opacity 0.2s ease-in-out;
 }
-
-.btn-social:hover {
-  opacity: 0.8;
-}
-
-.btn-social img {
-  width: 20px;
-  height: 20px;
-  filter: brightness(0) invert(1);
-}
-
-.main-property-image {
-  height: 60vh;
-  object-fit: cover;
-  width: 100%;
-}
-
-.thumbnail-item {
-<<<<<<< HEAD
-  flex: 0 0 90px; 
-=======
-  flex: 0 0 90px;
->>>>>>> main
-  max-width: 120px;
-  height: 65px;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.2s ease-in-out;
-  border: 2px solid transparent;
-  padding: 0;
-}
-
-.thumbnail-item:hover {
-  opacity: 1;
-}
-
-.thumbnail-item.active {
-  opacity: 1;
-  border-color: #D4AF37;
-}
-
-.thumbnail-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.stats-bar {
-  padding: 1.5rem 1rem 1.25rem 1rem;
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> main
+.btn-social:hover { opacity: 0.8; }
+.btn-social img { width: 20px; height: 20px; filter: brightness(0) invert(1); }

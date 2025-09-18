@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Service } from '../services/service';
+import { Loading } from "../components/loading/loading";
 
 interface PropertyDetails {
   title: string;
@@ -22,15 +25,27 @@ interface Stat {
   label: string;
 }
 
+interface CarouselImage {
+  itemImageSrc: string;
+  thumbnailImageSrc: string;
+  alt: string;
+}
+
 @Component({
   selector: 'app-imovel-detalhes',
-  imports: [CommonModule],
+  imports: [CommonModule, Loading],
   templateUrl: './imovel-detalhes.html',
   styleUrl: './imovel-detalhes.css',
 })
 export class ImovelDetalhes implements OnInit {
   propertyDetails: PropertyDetails | undefined;
   images: any[] | undefined;
+  isLoading: boolean = false;
+
+  constructor(
+    private route: ActivatedRoute,
+    private service: Service
+  ) { }
 
   uiText = {
     sectionTitles: {
@@ -49,139 +64,109 @@ export class ImovelDetalhes implements OnInit {
   };
 
   ngOnInit(): void {
-    this.propertyDetails = {
-      title: 'Vila Moderna de Luxo com Piscina',
-      location: 'Beverly Hills, Los Angeles, CA 90210',
-      code: '#BH2024001',
-      price: 'R$ 15.000.000',
-      monthlyFee: 'R$ 2.500',
-      description:
-        'Esta deslumbrante vila moderna representa o auge da vida de luxo em Beverly Hills. Com um design de conceito aberto, janelas do chão ao teto que inundam o espaço com luz natural, esta propriedade oferece vistas deslumbrantes e uma vida interna e externa perfeitas.',
-      stats: [
-        { icon: 'icon-area.svg', value: '450', label: 'm² (const.)' },
-        { icon: 'icon-area.svg', value: '800', label: 'm² (total)' },
-        { icon: 'icon-bed.svg', value: '4', label: 'Quartos' },
-        { icon: 'icon-shower.svg', value: '3', label: 'Banheiros' },
-        { icon: 'icon-garage.svg', value: '2', label: 'Vagas' },
-        { icon: 'icon-bed.svg', value: '2', label: 'Suítes' },
-      ],
+    this.isLoading = true; // Garante que o loading comece
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (id) {
+      this.service.buscarDetalhesImovel(+id).subscribe({
+        next: (detalhesDaApi) => {
+          this.propertyDetails = this.mapearApiParaDetalhes(detalhesDaApi);
+          this.images = this.mapearApiParaImagens(detalhesDaApi);
+          this.isLoading = false;
+        },
+        error: (err) => {
+          console.error("Erro ao buscar detalhes do imóvel:", err);
+          this.isLoading = false;
+        }
+      });
+    } else {
+      this.isLoading = false;
+    }
+  }
+
+  private mapearApiParaDetalhes(apiData: any): PropertyDetails {
+
+    const imovel =  apiData.imovel;
+
+    const details: PropertyDetails = {
+      title: imovel.titulo,
+      location: `${imovel.bairro}, ${imovel.cidade} - ${imovel.estado}`,
+      code: `#${imovel.codigo}`,
+      price: imovel.valor,
+      monthlyFee: imovel.valorcondominio,
+      description: imovel.descricao,
+      stats: [],
       features: {
-        internal: ['Ar Condicionado', 'Piso de Madeira', 'Lareira'],
-        external: ['Piscina', 'Jardim', 'Área Gourmet'],
-        extra: ['Sistema de Segurança', 'Casa Inteligente', 'Painéis Solares'],
+        internal: [],
+        external: [],
+        extra: [],
       },
     };
 
-    this.images = [
-      {
-        itemImageSrc: 'assets/images/imagem-casa-teste.jpg',
-        thumbnailImageSrc: 'assets/images/imagem-casa-teste.jpg',
-        alt: 'Fachada da casa moderna',
+    details.stats.push({ icon: 'icon-area.svg', value: (imovel.areainterna || "0,00").replace(',', '.'), label: 'm² (const.)' });
+    details.stats.push({ icon: 'icon-area.svg', value: (imovel.arealote || "0,00").replace(',', '.'), label: 'm² (total)' });
+    details.stats.push({ icon: 'icon-bed.svg', value: imovel.numeroquartos, label: 'Quartos' });
+    details.stats.push({ icon: 'icon-shower.svg', value: imovel.numerobanhos, label: 'Banheiros' });
+    details.stats.push({ icon: 'icon-garage.svg', value: imovel.numerovagas, label: 'Vagas' });
+    details.stats.push({ icon: 'icon-bed.svg', value: imovel.numerosuites, label: 'Suítes' });
+
+    const featureMap = {
+      internal: {
+        arcondicionado: 'Ar Condicionado', lavabo: 'Lavabo', armariobanheiro: 'Armário no Banheiro',
+        armariocozinha: 'Armário na Cozinha', armarioquarto: 'Armário no Quarto',
+        closet: 'Closet', dce: 'DCE', despensa: 'Despensa', escritorio: 'Escritório',
+        lareira: 'Lareira', mobiliado: 'Mobiliado', areaservico: 'Área de Serviço',
       },
-      {
-        itemImageSrc: 'assets/images/imagem-casa-teste.jpg',
-        thumbnailImageSrc: 'assets/images/imagem-casa-teste.jpg',
-        alt: 'Piscina e área de lazer',
+      external: {
+        piscina: 'Piscina', churrasqueira: 'Churrasqueira', espacogourmet: 'Espaço Gourmet',
+        jardim: 'Jardim', playground: 'Playground', quadraesportiva: 'Quadra Esportiva',
+        salaofestas: 'Salão de Festas', sauna: 'Sauna', beachtenis: 'Beach Tennis',
+        quintal: 'Quintal', gramado: 'Gramado'
       },
-      {
-        itemImageSrc: 'assets/images/imagem-casa-teste.jpg',
-        thumbnailImageSrc: 'assets/images/imagem-casa-teste.jpg',
-        alt: 'Sala de estar ampla',
-      },
-      {
-        itemImageSrc: 'assets/images/imagem-casa-teste.jpg',
-        thumbnailImageSrc: 'assets/images/imagem-casa-teste.jpg',
-        alt: 'Piscina e área de lazer',
-      },
-      {
-        itemImageSrc: 'assets/images/imagem-casa-teste.jpg',
-        thumbnailImageSrc: 'assets/images/imagem-casa-teste.jpg',
-        alt: 'Sala de estar ampla',
-      },
-    ];
-  }
-}
-
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-
-interface PropertyDetails {
-  title: string;
-  location: string;
-  code: string;
-  price: string;
-  monthlyFee: string;
-  description: string;
-  stats: Stat[];
-  features: {
-    internal: string[];
-    external: string[];
-    extra: string[];
-  };
-}
-
-interface Stat {
-  icon: string;
-  value: string;
-  label: string;
-}
-
-@Component({
-  selector: 'app-imovel-detalhes',
-  imports: [CommonModule],
-  templateUrl: './imovel-detalhes.html',
-  styleUrl: './imovel-detalhes.css'
-})
-export class ImovelDetalhes implements OnInit {
-
-  propertyDetails: PropertyDetails | undefined;
-  images: any[] | undefined;
-
-  uiText = {
-    sectionTitles: {
-      description: 'Descrição',
-      features: 'Características'
-    },
-    featureCategories: {
-      internal: 'Internas',
-      external: 'Externas',
-      extra: 'Extras'
-    },
-    carousel: {
-      previous: 'Anterior',
-      next: 'Próximo'
-    }
-  };
-
-  ngOnInit(): void {
-    this.propertyDetails = {
-      title: 'Vila Moderna de Luxo com Piscina',
-      location: 'Beverly Hills, Los Angeles, CA 90210',
-      code: '#BH2024001',
-      price: 'R$ 15.000.000',
-      monthlyFee: 'R$ 2.500',
-      description: 'Esta deslumbrante vila moderna representa o auge da vida de luxo em Beverly Hills. Com um design de conceito aberto, janelas do chão ao teto que inundam o espaço com luz natural, esta propriedade oferece vistas deslumbrantes e uma vida interna e externa perfeitas.',
-      stats: [
-        { icon: 'icon-area.svg', value: '450', label: 'm² (const.)' },
-        { icon: 'icon-area.svg', value: '800', label: 'm² (total)' },
-        { icon: 'icon-bed.svg', value: '4', label: 'Quartos' },
-        { icon: 'icon-shower.svg', value: '3', label: 'Banheiros' },
-        { icon: 'icon-garage.svg', value: '2', label: 'Vagas' },
-        { icon: 'icon-bed.svg', value: '2', label: 'Suítes' }
-      ],
-      features: {
-        internal: ['Ar Condicionado', 'Piso de Madeira', 'Lareira'],
-        external: ['Piscina', 'Jardim', 'Área Gourmet'],
-        extra: ['Sistema de Segurança', 'Casa Inteligente', 'Painéis Solares']
+      extra: {
+        portaria24horas: 'Portaria 24h', alarme: 'Alarme', circuitotv: 'Circuito de TV',
+        gascanalizado: 'Gás Canalizado', aguaindividual: 'Água Individual',
+        aquecedorsolar: 'Aquecedor Solar', permiteanimais: 'Permite Animais'
       }
     };
 
-    this.images = [
-      { itemImageSrc: 'assets/images/imagem-casa-teste.jpg', thumbnailImageSrc: 'assets/images/imagem-casa-teste.jpg', alt: 'Fachada da casa moderna' },
-      { itemImageSrc: 'assets/images/imagem-casa-teste.jpg', thumbnailImageSrc: 'assets/images/imagem-casa-teste.jpg', alt: 'Piscina e área de lazer' },
-      { itemImageSrc: 'assets/images/imagem-casa-teste.jpg', thumbnailImageSrc: 'assets/images/imagem-casa-teste.jpg', alt: 'Sala de estar ampla' },
-      { itemImageSrc: 'assets/images/imagem-casa-teste.jpg', thumbnailImageSrc: 'assets/images/imagem-casa-teste.jpg', alt: 'Piscina e área de lazer' },
-      { itemImageSrc: 'assets/images/imagem-casa-teste.jpg', thumbnailImageSrc: 'assets/images/imagem-casa-teste.jpg', alt: 'Sala de estar ampla' }
-    ];
+    for (const key in featureMap.internal) {
+      if (imovel[key] === true) details.features.internal.push(featureMap.internal[key as keyof typeof featureMap.internal]);
+    }
+    for (const key in featureMap.external) {
+      if (imovel[key] === true) details.features.external.push(featureMap.external[key as keyof typeof featureMap.external]);
+    }
+    for (const key in featureMap.extra) {
+      if (imovel[key] === true) details.features.extra.push(featureMap.extra[key as keyof typeof featureMap.extra]);
+    }
+
+    return details;
+  }
+
+  private mapearApiParaImagens(apiData: any): CarouselImage[] {
+    const imagensFormatadas: CarouselImage[] = [];
+    const imovel = apiData.imovel;
+
+    if (imovel.urlfotoprincipal) {
+      imagensFormatadas.push({
+        itemImageSrc: imovel.urlfotoprincipal,
+        thumbnailImageSrc: imovel.urlfotoprincipalp || imovel.urlfotoprincipal,
+        alt: imovel.descricaoFotoPrincipal || imovel.titulo
+      });
+    }
+
+    if (imovel.fotos && Array.isArray(imovel.fotos)) {
+      imovel.fotos.forEach((foto: any) => {
+        if (foto.url !== imovel.urlfotoprincipal) {
+          imagensFormatadas.push({
+            itemImageSrc: foto.url,
+            thumbnailImageSrc: foto.urlp || foto.url,
+            alt: foto.descricao || imovel.titulo
+          });
+        }
+      });
+    }
+
+    return imagensFormatadas;
   }
 }
