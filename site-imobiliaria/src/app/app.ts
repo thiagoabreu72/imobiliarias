@@ -3,11 +3,10 @@ import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ModalDesktop } from './modal-desktop/modal-desktop';
-import { ImovelDetalhes } from "./imovel-detalhes/imovel-detalhes";
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, NavbarComponent, ModalDesktop, ImovelDetalhes],
+  imports: [CommonModule, RouterOutlet, NavbarComponent, ModalDesktop],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
