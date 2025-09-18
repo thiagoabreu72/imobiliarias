@@ -1,0 +1,86 @@
+<aside class="filtros-container">
+  <form [formGroup]="filtroForm" (ngSubmit)="buscar()">
+
+    <div class="campo-filtro">
+      <label>Cidades</label>
+      <select formControlName="codigocidade">
+        <option [ngValue]="null">Todas as Cidades</option>
+        @for (cidade of cidades$ | async; track cidade.codigo) {
+          <option [value]="cidade.codigo">{{ cidade.nome }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="campo-filtro">
+      <label>Bairros</label>
+      <app-multi-select-dropdown
+        [options]="(bairros$ | async) || []"
+        optionValue="codigo"
+        optionLabel="nome"
+        (selectionChange)="filtroForm.get('codigosbairros')?.setValue($event)">
+      </app-multi-select-dropdown>
+    </div>
+
+    <div class="campo-filtro">
+      <label>Tipo de Imóvel</label>
+      <div class="grupo-botoes">
+        @for (tipo of tiposImovel$ | async; track tipo.codigo) {
+          <button type="button" class="btn-filtro" 
+                  [class.ativo]="isAtivoMulti('codigoTipo', tipo.codigo)"
+                  (click)="toggleSelecaoMultipla('codigoTipo', tipo.codigo)">
+            {{ tipo.nome }}
+          </button>
+        }
+      </div>
+    </div>
+    
+    <div class="campo-filtro">
+      <label>Quartos</label>
+      <div class="grupo-botoes-numerico">
+        @for (q of opcoesQuartos; track q.value) {
+          <button type="button" class="btn-filtro-num"
+                  [class.ativo]="isAtivoUnico('numeroquartos', q.value)"
+                  (click)="toggleSelecaoUnica('numeroquartos', q.value)">
+            {{ q.label }}
+          </button>
+        }
+      </div>
+    </div>
+    
+    <div class="campo-filtro">
+      <label>Banheiros</label>
+      <div class="grupo-botoes-numerico">
+        @for (b of opcoesBanheiros; track b.value) {
+          <button type="button" class="btn-filtro-num"
+                  [class.ativo]="isAtivoUnico('numerobanhos', b.value)"
+                  (click)="toggleSelecaoUnica('numerobanhos', b.value)">
+            {{ b.label }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="campo-filtro">
+      <label>Vagas</label>
+      <div class="grupo-botoes-numerico">
+        @for (v of opcoesVagas; track v.value) {
+          <button type="button" class="btn-filtro-num"
+                  [class.ativo]="isAtivoUnico('numerovagas', v.value)"
+                  (click)="toggleSelecaoUnica('numerovagas', v.value)">
+            {{ v.label }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="campo-filtro">
+      <label>Valor</label>
+      <div class="input-group">
+        <input type="text" placeholder="Mínimo" formControlName="valorde" (input)="onValorChange($event, 'valorde')">
+        <input type="text" placeholder="Máximo" formControlName="valorate" (input)="onValorChange($event, 'valorate')">
+      </div>
+    </div>
+
+    <button type="submit" class="btn-buscar">Buscar</button>
+  </form>
+</aside>
