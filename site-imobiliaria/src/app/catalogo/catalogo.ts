@@ -1,68 +1,104 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardGeral } from '../card-geral/card-geral';
 import { MultiSelectDropdownComponent } from '../components/multi-select-dropdown.component/multi-select-dropdown.component';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Service } from '../services/service';
+import { BehaviorSubject, map, Observable, startWith, Subscription, switchMap, tap } from 'rxjs';
+import { Cidade, FiltrosCidadesRequest, FiltrosImoveisRequest, TipoImovel } from '../interfaces/filtros.interface';
+import { ApiResponseMapeada, ImovelCard, ImovelResponse } from '../interfaces/imovel.interface';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { FiltroImoveis } from "../components/filtro-imoveis/filtro-imoveis";
 
 @Component({
   selector: 'app-catalogo',
-  imports: [CardGeral, CommonModule, MultiSelectDropdownComponent, FormsModule],
+  imports: [CardGeral, CommonModule, ReactiveFormsModule, RouterModule, FiltroImoveis],
   templateUrl: './catalogo.html',
   styleUrl: './catalogo.css',
 })
-export class Catalogo {
-  constructor(private service: Service) {
-    this.service.buscarTiposImoveis().subscribe((data) => {
-      this.tipoImovel = data;
-      console.log(this.tipoImovel);
+export class Catalogo implements OnInit {
+
+  finalidade!: 1 | 2;
+  tituloPagina!: string;
+  currentPage = 1;
+  resultadoBusca$!: Observable<ApiResponseMapeada>;
+
+  private ultimosFiltros: any = {};
+
+  constructor(
+    private route: ActivatedRoute,
+    private service: Service
+  ) {}
+
+  ngOnInit(): void {
+    this.route.data.subscribe(data => {
+      this.finalidade = data['finalidade'];
+      this.tituloPagina = data['titulo'];
+      this.onFiltrosChange({});
     });
   }
 
-  tipoImovelOptions = [
-    { label: 'Apartamento', value: 'apartamento' },
-    { label: 'Casa', value: 'casa' },
-    { label: 'Lote', value: 'lote' },
-  ];
-  cidadesOptions = [
-    { label: 'São Paulo', value: 'sao-paulo' },
-    { label: 'Rio de Janeiro', value: 'rio-de-janeiro' },
-    { label: 'Brasília', value: 'brasilia' },
-  ];
-  quantidadeQuartos = [
-    { label: '1 quarto', value: '1' },
-    { label: '2 quartos', value: '2' },
-    { label: '3 quartos', value: '3' },
-    { label: '+4 quartos', value: '4' },
-  ];
-  quantidadeBanheiros = [
-    { label: '1 banheiro', value: '1' },
-    { label: '2 banheiros', value: '2' },
-    { label: '3 banheiros', value: '3' },
-    { label: '+4 banheiros', value: '4' },
-  ];
-  tipoImovel = [
-    { label: 'Apartamento', value: 'apartamento' },
-    { label: 'Casa', value: 'casa' },
-    { label: 'Lote', value: 'lote' },
-  ];
-  valorInicial: string = '';
-  valorFinal: string = '';
+  onFiltrosChange(filtrosDoFormulario: any, resetPage: boolean = true): void {
+    if (resetPage) {
+      this.currentPage = 1;
+    }
+    this.ultimosFiltros = filtrosDoFormulario; 
 
-  // montar máscara no formato 0,00 e exibir em tempo real
-  mascaraValor(value: string, tipo: string) {
-    const numeric = value.replace(/\D/g, '');
-    const number = parseInt(numeric || '0', 10) / 100;
-    const formatted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(
-      number
+    const codigoTipoString = (filtrosDoFormulario.codigoTipo as any[])?.join(',') || '';
+    const codigosBairrosString = (filtrosDoFormulario.codigosbairros as any[])?.join(',') || '';
+
+    const filtrosParaApi: FiltrosImoveisRequest = {
+      finalidade: this.finalidade,
+      numeropagina: this.currentPage,
+      numeroregistros: 12,
+      codigoTipo: codigoTipoString,
+      codigocidade: filtrosDoFormulario.codigocidade || 0,
+      codigosbairros: codigosBairrosString,
+      numeroquartos: filtrosDoFormulario.numeroquartos || 0,
+      numerobanhos: filtrosDoFormulario.numerobanhos || 0,
+      numerovagas: filtrosDoFormulario.numerovagas || 0,
+      valorde: this.parseCurrency(filtrosDoFormulario.valorde),
+      valorate: this.parseCurrency(filtrosDoFormulario.valorate),
+    };
+
+    this.resultadoBusca$ = this.service.buscarImoveisFiltrados(filtrosParaApi).pipe(
+      map(responseDaApi => ({
+        ...responseDaApi,
+        lista: responseDaApi.lista.map(imovel => this.mapearImovelParaCard(imovel))
+      }))
     );
-
-    // atualiza o valor visível formatado
-    if (tipo == 'I') this.valorInicial = formatted;
-    else this.valorFinal = formatted;
   }
 
-  buscar() {
-    console.log('Buscar');
+  proximaPagina(): void {
+    this.currentPage++;
+    this.onFiltrosChange(this.ultimosFiltros, false);
+  }
+
+  paginaAnterior(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.onFiltrosChange(this.ultimosFiltros, false);
+    }
+  }
+
+  private mapearImovelParaCard(imovel: ImovelResponse): ImovelCard {
+    return {
+      codigo: imovel.codigo,
+      imgs: [imovel.urlfotoprincipal, ...imovel.fotos.slice(0, 4).map(f => f.url)],
+      localizacao: `${imovel.bairro} | ${imovel.cidade}`,
+      titulo: imovel.titulo,
+      preco: imovel.valor,
+      area: `${imovel.areainterna} m²`,
+      quartos: parseInt(imovel.numeroquartos, 10) || 0,
+      vagas: parseInt(imovel.numerovagas, 10) || 0,
+      banhos: parseInt(imovel.numerobanhos, 10) || 0,
+    };
+  }
+
+  private parseCurrency(value: string | null): number | undefined {
+    if (!value) return undefined;
+    const numeric = value.replace(/\D/g, '');
+    if (!numeric) return undefined;
+    return parseInt(numeric, 10) / 100;
   }
 }

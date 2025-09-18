@@ -1,56 +1,36 @@
-<div style="display: grid; grid-template-columns: 12% 88%; margin-top: 1.5rem">
-  <div style="background-color: var(--secondary-black); width: auto; padding: 15px">
-    <app-multi-select-dropdown
-      [label]="'Tipo de Imóvel'"
-      [options]="tipoImovelOptions"
-    ></app-multi-select-dropdown>
+@if (resultadoBusca$ | async; as response) {
+  <div class="titulo-container">
+    <h1 class="texto-topo-busca">{{ response.quantidade }} {{ tituloPagina }}</h1>
+  </div>
+}
 
-    <app-multi-select-dropdown
-      [label]="'Cidade'"
-      [options]="cidadesOptions"
-    ></app-multi-select-dropdown>
+<div class="conteudo-principal">
 
-    <app-multi-select-dropdown
-      [label]="'Quartos'"
-      [options]="quantidadeQuartos"
-    ></app-multi-select-dropdown>
+  <app-filtro-imoveis
+    [finalidade]="finalidade"
+    (filtrosChange)="onFiltrosChange($event)">
+  </app-filtro-imoveis>
 
-    <app-multi-select-dropdown
-      [label]="'Banheiros'"
-      [options]="quantidadeBanheiros"
-    ></app-multi-select-dropdown>
-
-    <app-multi-select-dropdown
-      [label]="'Tipo de Imóvel'"
-      [options]="tipoImovel"
-    ></app-multi-select-dropdown>
-    <br />
-    <div>
-      <label class="mb-0" style="color:#fff">Valor</label>
-      <div class="input-group">
-        <input
-          type="text"
-          placeholder="Valor inicial"
-          (input)="mascaraValor(valorInicial, 'I')"
-          [(ngModel)]="valorInicial"
-        />
-        <input
-          type="text"
-          placeholder="Valor final"
-          (input)="mascaraValor(valorFinal, 'F')"
-          [(ngModel)]="valorFinal"
-        />
+  <main class="resultados">
+    @if (resultadoBusca$ | async; as response) {
+      <div class="grid-imoveis">
+        @for (card of response.lista; track card.codigo) {
+          <app-card-geral [cards]="card"></app-card-geral>
+        } @empty {
+          <p class="sem-resultados">Nenhum imóvel encontrado com os filtros selecionados.</p>
+        }
       </div>
-    </div>
 
-    <div>
-      <button type="button" (click)="buscar()">Buscar</button>
-    </div>
-  </div>
-  <div>
-    <div style="padding: 0 10px 10px 10px">
-      <h1 class="texto-topo-busca" style="color: #fff">737 Imóveis à venda em Itapema</h1>
-    </div>
-    <app-card-geral></app-card-geral>
-  </div>
+      @if (response.lista && response.lista.length > 0) {
+        <div class="paginacao">
+          <button (click)="paginaAnterior()" [disabled]="currentPage === 1">Anterior</button>
+          <span>Página {{ currentPage }}</span>
+          <button (click)="proximaPagina()" [disabled]="response.lista.length < 12">Próxima</button>
+        </div>
+      }
+    } @else {
+      <p class="carregando">Carregando imóveis...</p>
+    }
+  </main>
+
 </div>

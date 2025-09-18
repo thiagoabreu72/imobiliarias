@@ -1,165 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ImovelCard } from '../interfaces/imovel.interface';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-card-geral',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './card-geral.html',
   styleUrl: './card-geral.css',
 })
 export class CardGeral {
-  cards: ImovelCard[] = [
-    {
-      codigo: 20257,
-      imgs: [
-        'https://picsum.photos/300/200',
-        'https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-      ],
-      localizacao: 'Centro | Cascavel',
-      titulo: 'Apartamento à venda no Centro',
-      preco: 'R$ 1.570.000,00',
-      area: '169,73 m²',
-      quartos: 2,
-      vagas: 3,
-      banhos: 0,
-    },
-    {
-      codigo: 20254,
-      imgs: [
-        'https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-      ],
-      localizacao: 'Centro | Cascavel',
-      titulo: 'Apartamento à venda no Centro',
-      preco: 'R$ 1.570.000,00',
-      area: '169,73 m²',
-      quartos: 2,
-      vagas: 3,
-      banhos: 0,
-    },
-    {
-      codigo: 20243,
-      imgs: [
-        'https://picsum.photos/300/200',
-        'https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-      ],
-      localizacao: 'Centro | Cascavel',
-      titulo: 'Apartamento à venda no Centro',
-      preco: 'R$ 1.570.000,00',
-      area: '169,73 m²',
-      quartos: 2,
-      vagas: 3,
-      banhos: 0,
-    },
-    {
-      codigo: 20275,
-      imgs: [
-        'https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-      ],
-      localizacao: 'Centro | Cascavel',
-      titulo: 'Apartamento à venda no Centro',
-      preco: 'R$ 1.570.000,00',
-      area: '169,73 m²',
-      quartos: 2,
-      vagas: 3,
-      banhos: 0,
-    },
-    {
-      codigo: 20298,
-      imgs: [
-        'https://picsum.photos/300/200',
-        'https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-      ],
-      localizacao: 'Centro | Cascavel',
-      titulo: 'Apartamento à venda no Centro',
-      preco: 'R$ 1.570.000,00',
-      area: '169,73 m²',
-      quartos: 2,
-      vagas: 3,
-      banhos: 0,
-    },
-    {
-      codigo: 20299,
-      imgs: [
-        'https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-      ],
-      localizacao: 'Centro | Cascavel',
-      titulo: 'Apartamento à venda no Centro',
-      preco: 'R$ 1.570.000,00',
-      area: '169,73 m²',
-      quartos: 2,
-      vagas: 3,
-      banhos: 0,
-    },
-    {
-      codigo: 20300,
-      imgs: [
-        'https://picsum.photos/300/200',
-        'https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-      ],
-      localizacao: 'Centro | Cascavel',
-      titulo: 'Apartamento à venda no Centro',
-      preco: 'R$ 1.570.000,00',
-      area: '169,73 m²',
-      quartos: 2,
-      vagas: 3,
-      banhos: 0,
-    },
-    {
-      codigo: 20301,
-      imgs: [
-        'https://picsum.photos/300/200',
-        'https://cdn.imoview.com.br/portosegurost/Imoveis/9370/jl-ut-fachada-noite-ef.jpg?1749149994',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-        'https://picsum.photos/300/200',
-      ],
-      localizacao: 'Centro | Cascavel',
-      titulo: 'Apartamento à venda no Centro',
-      preco: 'R$ 1.570.000,00',
-      area: '169,73 m²',
-      quartos: 2,
-      vagas: 3,
-      banhos: 0,
-    },
-  ];
+  @Input() cards!: ImovelCard;
 
-  visibleCards!: any;
-  startIndex = 0;
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    // this.visibleCards = this.cards.slice(0, 4);
-    this.visibleCards = this.cards;
-    console.log(this.cards);
-    console.log(this.visibleCards);
-  }
-
-  favoritar(codigo: number) {
+  favoritar(codigo?: number) {
     // Implemente a lógica de favoritar aqui
     alert('Favoritado: ' + codigo);
+  }
+
+  verDetalhes(): void {
+    if (this.cards && this.cards.codigo) {
+      this.router.navigate(['/imovel', this.cards.codigo]);
+    }
   }
 }
