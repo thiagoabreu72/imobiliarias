@@ -227,3 +227,302 @@ export interface Imovel {
   extras2: object;
   chaveiros: object;
 }
+
+
+
+// Interfaces criadas para resposta da consulta de imóveis, tipando todas as declarações que ficaram como object 
+
+export interface Anexo {
+  codigo: number;
+  ordem: number;
+  visibilidade: string;
+  descricao: string;
+  url: string;
+}
+
+export interface Proprietario {
+  codigo: number;
+  nome: string;
+  email: string;
+  telefone: string;
+  percentual: number;
+}
+
+export interface Captador {
+  nome: string;
+  email: string;
+  telefone: string;
+  principal: boolean;
+  percentual: number;
+  foto: string;
+  creci: string;
+}
+
+export interface Foto {
+  descricao: string;
+  empreendimento: boolean;
+  condominio: boolean;
+  datahoraalteracao: string;
+  url: string;
+  urlm: string;
+  urlp: string;
+  urlpp: string;
+}
+
+export interface Extra {
+  [key: string]: string;
+}
+
+export interface Chave {
+  codigo: number;
+  tipo: string;
+  tipocodigo: number;
+  quantidade: number;
+  observacao: string;
+}
+
+export interface Chaveiro {
+  codigo: number;
+  situacao: string;
+  situacaocodigo: number;
+  unidade: string;
+  unidadecodigo: number;
+  numerolacre: string;
+  quadro: string;
+  quadrocodigo: number;
+  posicao: string;
+  posicaocodigo: number;
+  chaves: Chave[];
+}
+
+export interface ImovelResponse {
+  codigo: number;
+  codigomae: number;
+  emdesocupacao: boolean;
+  empreendimento: boolean;
+  empreendimentofilho: boolean;
+  nomeempreendimento?: string;
+  siteempreendimento?: string;
+  codigocondominio?: number;
+  nomecondominio?: string;
+  titulo: string;
+  metadescription?: string;
+  codigoauxiliar?: string;
+  unidade: number;
+  nomeunidade: string;
+  telefoneunidade?: string;
+  emaileunidade?: string;
+  finalidade: string;
+  codigodestinacao: number;
+  destinacao: string;
+  codigotipo: number;
+  tipo: string;
+  codigotipo2: number | null;
+  tipo2: string | null;
+  situacao: string;
+  valor: string;
+  valoranterior?: string;
+  valorm2?: string;
+  valorminimo?: string;
+  valormaximo?: string;
+  taxaadm?: string;
+  taxaintermediacao?: string;
+  taxacomissao?: string;
+  rentabilidade?: string;
+  valorcondominio?: string;
+  valormaiscondominio?: string;
+  valormaiscondominiomaisiptu?: string;
+  valormaiscondominiomaisiptumaisseguroincendio?: string;
+  indiceiptu?: string;
+  valoriptu?: string;
+  valoriptuanual?: string;
+  valorspu?: string;
+  valorseguroincendio?: string;
+  valorparcelaseguroincendio?: string;
+  valoritbi?: string;
+  valoravaliacao?: string;
+  percentualitbi?: string;
+  valorregistro?: string;
+  percentualregistro?: string;
+  codigobairro: number;
+  bairro: string;
+  codigobairro2: number | null;
+  bairro2: string | null;
+  codigocidade: number;
+  cidade: string;
+  codigocidade2: number | null;
+  cidade2: string | null;
+  estado: string;
+  estado2: string | null;
+  codigoregiao?: number;
+  regiao?: string;
+  codigosubregiao?: number;
+  subregiao?: string;
+  cep: string;
+  endereco: string;
+  numero: string;
+  complemento?: string;
+  bloco?: string;
+  pontoreferencia?: string;
+  melhoracesso?: string;
+  edificio?: string;
+  construtora?: string;
+  localchave?: string;
+  identificador?: string;
+  identificadorchave?: string;
+  aceitafinanciamento: boolean;
+  aceitapermuta: boolean;
+  anoconstrucao?: number;
+  numerochave?: number;
+  numeroquartos: string;
+  numerosalas: string;
+  numerobanhos: string;
+  numerovagas: string;
+  tipovagas?: string;
+  numerosuites: string;
+  numerovarandas?: string;
+  numeroelevador?: string;
+  numeroandar?: number;
+  unidadesporandar?: number;
+  numeroandares?: number;
+  totalunidades?: number;
+  destaque: string;
+  tipomedida: string;
+  areaprincipal: string;
+  areainterna: string;
+  areaexterna?: string;
+  arealote?: string;
+  metragemfrente?: string;
+  metragemfundo?: string;
+  metragemladodireito?: string;
+  metragemladoesquerdo?: string;
+  latitude: string;
+  longitude: string;
+  descricao: string;
+  anotacoes?: string;
+  confrontacaofrente?: string;
+  confrontacaofundo?: string;
+  confrontacaoladodireito?: string;
+  confrontacaoladoesquerdo?: string;
+  cartorio?: string;
+  matriculacartorio?: string;
+  livrocartorio?: string;
+  folhacartorio?: string;
+  exclusivo: boolean;
+  imovelocupado: boolean;
+  imovelalugado: boolean;
+  naplanta: boolean;
+  placa: boolean;
+  placafaixa?: string;
+  posicao?: string;
+  arcondicionado: boolean;
+  areaservico: boolean;
+  areaprivativa: boolean;
+  armariobanheiro: boolean;
+  armariocozinha: boolean;
+  armarioquarto: boolean;
+  box: boolean;
+  closet: boolean;
+  dce: boolean;
+  despensa: boolean;
+  escritorio: boolean;
+  lavabo: boolean;
+  mobiliado: boolean;
+  rouparia: boolean;
+  aguaindividual: boolean;
+  alarme: boolean;
+  aquecedorgas: boolean;
+  aquecedoreletrico: boolean;
+  aquecedorsolar: boolean;
+  boxdespejo: boolean;
+  cercaeletrica: boolean;
+  circuitotv: boolean;
+  gascanalizado: boolean;
+  interfone: boolean;
+  jardim: boolean;
+  lavanderia: boolean;
+  portaoeletronico: boolean;
+  portaria24horas: boolean;
+  seguranca24horas: boolean;
+  quintal: boolean;
+  gramado: boolean;
+  academia: boolean;
+  churrasqueira: boolean;
+  hidromassagem: boolean;
+  homecinema: boolean;
+  piscina: boolean;
+  playground: boolean;
+  quadraesportiva: boolean;
+  quadratenis: boolean;
+  salamassagem: boolean;
+  salaofestas: boolean;
+  salaojogos: boolean;
+  sauna: boolean;
+  wifi: boolean;
+  espacogourmet: boolean;
+  garageband: boolean;
+  quadrasquash: boolean;
+  beachtenis: boolean;
+  solmanha: boolean;
+  vistamar: boolean;
+  varandagourmet: boolean;
+  lareira: boolean;
+  cabeamentoestruturado: boolean;
+  tvacabo: boolean;
+  conexaointernet: boolean;
+  vistamontanha: boolean;
+  vistalago: boolean;
+  permiteanimais: boolean;
+  datahoracadastro: string;
+  datahoraultimaalteracao: string;
+  datahoraultimavalidacao?: string;
+  datahoraultimasituacao?: string;
+  datahoravagodesde?: string;
+  urlfotoprincipal: string;
+  descricaoFotoPrincipal?: string;
+  urlfotoprincipalm: string;
+  urlfotoprincipalp: string;
+  urlfotoprincipalpp: string;
+  urlvideo?: string;
+  urlpublica: string;
+  descricaoempreendimento?: string;
+  areapatio?: string;
+  areaarmazenagem?: string;
+  pedireito?: string;
+  cargapisointerno?: string;
+  cargapisoexterno?: string;
+  forcainstalada?: string;
+  alturaportao?: string;
+  numerodoca?: number;
+  temproposta: boolean;
+  temreserva: boolean;
+  datareserva?: string;
+  quantidadeanexos: number;
+  redecodigoconveniocaptador: number | null;
+  rederotaconveniocaptador: string | null;
+  redenomeconveniocaptador: string | null;
+  redetelefoneconveniocaptador: string | null;
+  redeemailconveniocaptador: string | null;
+  proprietarios: Proprietario[];
+  captadores: Captador[];
+  anexos: Anexo[];
+  fotos: Foto[];
+  fotos360: Foto[];
+  extras: Extra[];
+  extras2: Extra[];
+  chaveiros: Chaveiro[];
+}
+
+export interface ApiResponseImovel {
+  quantidade: number;
+  menorvalor: number;
+  maiorvalor: number;
+  menorarea: number;
+  maiorarea: number;
+  lista: ImovelResponse[];
+}
+
+export interface ApiResponseMapeada {
+  quantidade: number;
+  lista: ImovelCard[];
+}
