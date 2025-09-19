@@ -6,10 +6,12 @@
 
 <div class="conteudo-principal">
 
-  <app-filtro-imoveis
-    [finalidade]="finalidade"
-    (filtrosChange)="onFiltrosChange($event)">
-  </app-filtro-imoveis>
+  <div class="filtro-desktop">
+    <app-filtro-imoveis
+      [finalidade]="finalidade"
+      (filtrosChange)="onFiltrosChange($event)">
+    </app-filtro-imoveis>
+  </div>
 
   <main class="resultados">
     @if (resultadoBusca$ | async; as response) {
@@ -29,8 +31,32 @@
         </div>
       }
     } @else {
-      <p class="carregando">Carregando imóveis...</p>
+      <app-loading></app-loading>
     }
   </main>
 
+</div>
+
+<div class="floating-filter-btn-container">
+  <button class="btn btn-dark shadow-lg rounded-pill" (click)="abrirFiltroModal()">
+    <i class="bi bi-funnel-fill me-2"></i>
+    Mais Filtros
+  </button>
+</div>
+
+<div class="modal fade" id="filtroModal" #filtroModal tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Filtrar Imóveis</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <app-filtro-imoveis
+          [finalidade]="finalidade"
+          (filtrosChange)="onFiltrosChange($event)">
+        </app-filtro-imoveis>
+      </div>
+    </div>
+  </div>
 </div>

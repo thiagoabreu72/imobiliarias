@@ -1,29 +1,35 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardGeral } from '../card-geral/card-geral';
-import { MultiSelectDropdownComponent } from '../components/multi-select-dropdown.component/multi-select-dropdown.component';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Service } from '../services/service';
-import { BehaviorSubject, map, Observable, startWith, Subscription, switchMap, tap } from 'rxjs';
-import { Cidade, FiltrosCidadesRequest, FiltrosImoveisRequest, TipoImovel } from '../interfaces/filtros.interface';
+import { map, Observable, Subject, takeUntil } from 'rxjs';
+import { FiltrosImoveisRequest } from '../interfaces/filtros.interface';
 import { ApiResponseMapeada, ImovelCard, ImovelResponse } from '../interfaces/imovel.interface';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FiltroImoveis } from "../components/filtro-imoveis/filtro-imoveis";
+import { Loading } from "../components/loading/loading";
+import { Modal } from 'bootstrap';
 
 @Component({
   selector: 'app-catalogo',
-  imports: [CardGeral, CommonModule, ReactiveFormsModule, RouterModule, FiltroImoveis],
+  imports: [CardGeral, CommonModule, ReactiveFormsModule, RouterModule, FiltroImoveis, Loading],
   templateUrl: './catalogo.html',
   styleUrl: './catalogo.css',
 })
-export class Catalogo implements OnInit {
+export class Catalogo implements OnInit, AfterViewInit, OnDestroy {
 
   finalidade!: 1 | 2;
   tituloPagina!: string;
   currentPage = 1;
   resultadoBusca$!: Observable<ApiResponseMapeada>;
+  isFiltroDialogVisible = false;
 
   private ultimosFiltros: any = {};
+
+  @ViewChild('filtroModal') filtroModalRef!: ElementRef;
+  private filtroModal: any;
+  private destroy$ = new Subject<void>();
 
   constructor(
     private route: ActivatedRoute,
@@ -31,11 +37,23 @@ export class Catalogo implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.data.subscribe(data => {
-      this.finalidade = data['finalidade'];
-      this.tituloPagina = data['titulo'];
-      this.onFiltrosChange({});
-    });
+    this.route.data
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(data => {
+        this.finalidade = data['finalidade'];
+        this.tituloPagina = data['titulo'];
+        this.onFiltrosChange({});
+      });
+  }
+
+  ngAfterViewInit(): void {
+    if (this.filtroModalRef) {
+      this.filtroModal = new Modal(this.filtroModalRef.nativeElement);
+    }
+  }
+
+  abrirFiltroModal(): void {
+    this.filtroModal?.show();
   }
 
   onFiltrosChange(filtrosDoFormulario: any, resetPage: boolean = true): void {
@@ -67,6 +85,8 @@ export class Catalogo implements OnInit {
         lista: responseDaApi.lista.map(imovel => this.mapearImovelParaCard(imovel))
       }))
     );
+
+    this.filtroModal?.hide();
   }
 
   proximaPagina(): void {
@@ -101,4 +121,11 @@ export class Catalogo implements OnInit {
     if (!numeric) return undefined;
     return parseInt(numeric, 10) / 100;
   }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.filtroModal?.dispose();
+  }
+  
 }

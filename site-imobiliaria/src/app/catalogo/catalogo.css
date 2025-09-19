@@ -3,7 +3,7 @@
   gap: 10px;
   margin-bottom: 2rem;
   padding: 10px;
-  border-bottom: 1px solid #333; 
+  border-bottom: 1px solid #333;
 }
 
 .abas-navegacao a {
@@ -19,7 +19,7 @@
 }
 
 .abas-navegacao a.ativo {
-  color: #D4AF37; 
+  color: #D4AF37;
 }
 
 .abas-navegacao a.ativo::after {
@@ -29,7 +29,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background-color: #D4AF37; 
+  background-color: #D4AF37;
 }
 
 .titulo-container {
@@ -75,4 +75,63 @@
 .paginacao button:disabled {
   background-color: #555;
   cursor: not-allowed;
+}
+
+.sem-resultados {
+  grid-column: 1 / -1; 
+  text-align: center;
+  padding: 2rem;
+}
+
+.floating-filter-btn-container {
+  display: none; 
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1030; 
+}
+
+
+.modal-content {
+  background-color: #222; 
+  color: #fff;
+  border-radius: 12px;
+  border: none;
+}
+
+.modal-header {
+  border-bottom: none;
+  color: #fff;
+}
+
+.modal-header .btn-close {
+  filter: invert(1); 
+}
+
+
+@media (max-width: 992px) {
+  
+  .filtro-desktop {
+    display: none;
+  }
+  
+  .floating-filter-btn-container {
+    display: block;
+  }
+  
+  .conteudo-principal {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-imoveis {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .grid-imoveis app-card-geral {
+    width: 100%;
+  }
 }

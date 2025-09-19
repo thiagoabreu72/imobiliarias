@@ -1,63 +1,53 @@
 :host {
   --cor-fundo: #000000;
   --cor-texto-principal: #FFFFFF;
-  --cor-texto-secundario: #C1C1C1; /* Cinza claro para textos de apoio */
+  --cor-texto-secundario: #C1C1C1; 
   --cor-ouro: #D4AF37;
-  --cor-cinza-painel: #2E2E2E; /* Cinza escuro para painéis e cards */
+  --cor-cinza-painel: #2E2E2E; 
   --cor-borda: #444;
-  --fonte-titulo: 'Cinzel', serif;
-  --fonte-corpo: 'Montserrat', sans-serif;
+  --fonte: 'Montserrat', sans-serif;
 }
 
-/* 2. ESTILOS GERAIS DA PÁGINA */
 .container-xl {
   color: var(--cor-texto-principal);
-  font-family: var(--fonte-corpo);
+  font-family: var(--fonte);
 }
 
-/* Títulos H1, H2, H3 */
 h1, h2, h3 {
-  font-family: var(--fonte-titulo); /* Títulos com Cinzel para elegância */
+  font-family: var(--fonte-titulo); 
   color: var(--cor-texto-principal);
   font-weight: bold;
 }
 
-/* Borda inferior dos títulos de seção */
 h2.border-bottom {
   border-bottom-color: var(--cor-borda) !important;
 }
 
-/* Textos secundários e parágrafos */
 p.text-secondary, .text-muted {
   color: var(--cor-texto-secundario) !important;
 }
 
-/* 3. BARRA DE STATS (Área, Quartos, etc.) */
 .stats-bar {
-  background-color: var(--cor-cinza-painel) !important; /* Fundo cinza escuro */
-  padding: 1.5rem 1rem;
+  background-color: transparent !important;
+  padding: 1.5rem 0; 
 }
 .stats-bar p {
-    color: var(--cor-texto-principal); /* Garante que o texto seja branco */
+    color: var(--cor-texto-principal);
 }
 .info-icon {
   width: 28px;
   height: 28px;
-  /* Filtro CSS para deixar o ícone dourado */
   filter: invert(82%) sepia(26%) saturate(3048%) hue-rotate(352deg) brightness(91%) contrast(87%);
 }
 
-/* 4. ÍCONES DE CHECK E LOCALIZAÇÃO */
 .location-icon, .check-icon {
   width: 20px;
   height: 20px;
-  /* Filtro CSS para deixar o ícone dourado */
   filter: invert(82%) sepia(26%) saturate(3048%) hue-rotate(352deg) brightness(91%) contrast(87%);
 }
 
-/* 5. CARD LATERAL DE CONTATO */
 .card {
-  background-color: var(--cor-cinza-painel) !important; /* Fundo cinza escuro */
+  background-color: var(--cor-cinza-painel) !important; 
   border: 1px solid var(--cor-borda);
 }
 
@@ -66,10 +56,9 @@ p.text-secondary, .text-muted {
 }
 
 .card-subtitle {
-  color: var(--cor-ouro) !important; /* Preço em dourado */
+  color: var(--cor-ouro) !important; 
 }
 
-/* Formulário de Contato */
 .form-control {
   background-color: #3a3a3a;
   border: 1px solid var(--cor-borda);
@@ -85,9 +74,8 @@ p.text-secondary, .text-muted {
   color: var(--cor-placeholder);
 }
 
-/* Botões do Formulário */
 .btn-primary {
-  color: var(--cor-texto-escuro) !important; /* Texto preto para contraste */
+  color: #000 !important; 
   background-color: var(--cor-ouro) !important;
   border-color: var(--cor-ouro) !important;
   font-weight: bold;
@@ -107,7 +95,7 @@ p.text-secondary, .text-muted {
   border-color: #666 !important;
 }
 
-/* 6. CARROSSEL E THUMBNAILS */
+
 .main-property-image {
   height: 60vh;
   object-fit: cover;
@@ -126,11 +114,10 @@ p.text-secondary, .text-muted {
 .thumbnail-item:hover { opacity: 1; }
 .thumbnail-item.active {
   opacity: 1;
-  border-color: var(--cor-ouro); /* Borda dourada na thumbnail ativa */
+  border-color: var(--cor-ouro); 
 }
 .thumbnail-item img { width: 100%; height: 100%; object-fit: cover; }
 
-/* 7. BOTÕES DE COMPARTILHAMENTO */
 .btn-social {
   width: 38px;
   height: 38px;
@@ -140,7 +127,7 @@ p.text-secondary, .text-muted {
   border-radius: 50%;
   margin: 0 4px;
   padding: 0;
-  background-color: #3a3a3a; /* Fundo cinza escuro */
+  background-color: #3a3a3a; 
   border: 1px solid #3a3a3a;
   transition: opacity 0.2s ease-in-out;
 }

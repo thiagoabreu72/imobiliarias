@@ -37,7 +37,7 @@
           <span>{{ propertyDetails.location }}</span>
         </div>
 
-        <div class="row stats-bar justify-content-around text-center my-4 bg-light rounded gy-4">
+        <div class="row stats-bar justify-content-around text-center my-2 gy-4">
           <div class="col-auto d-flex flex-column align-items-center" *ngFor="let stat of propertyDetails.stats">
             <img [src]="'assets/icons/icons-tema-clean/' + stat.icon" [alt]="'Ícone de ' + stat.label" class="info-icon">
             <p class="mb-0 small mt-2">{{ stat.value }} {{ stat.label }}</p>

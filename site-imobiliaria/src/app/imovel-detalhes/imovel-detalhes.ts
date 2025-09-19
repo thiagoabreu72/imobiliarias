@@ -104,11 +104,11 @@ export class ImovelDetalhes implements OnInit {
     };
 
     details.stats.push({ icon: 'icon-area.svg', value: (imovel.areainterna || "0,00").replace(',', '.'), label: 'm² (const.)' });
-    details.stats.push({ icon: 'icon-area.svg', value: (imovel.arealote || "0,00").replace(',', '.'), label: 'm² (total)' });
+    details.stats.push({ icon: 'icon-cerca.svg', value: (imovel.arealote || "0,00").replace(',', '.'), label: 'm² (total)' });
     details.stats.push({ icon: 'icon-bed.svg', value: imovel.numeroquartos, label: 'Quartos' });
     details.stats.push({ icon: 'icon-shower.svg', value: imovel.numerobanhos, label: 'Banheiros' });
     details.stats.push({ icon: 'icon-garage.svg', value: imovel.numerovagas, label: 'Vagas' });
-    details.stats.push({ icon: 'icon-bed.svg', value: imovel.numerosuites, label: 'Suítes' });
+    details.stats.push({ icon: 'icon-suites.svg', value: imovel.numerosuites, label: 'Suítes' });
 
     const featureMap = {
       internal: {
