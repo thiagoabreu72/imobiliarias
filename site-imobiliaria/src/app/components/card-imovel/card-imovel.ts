@@ -8,17 +8,10 @@ import { ImovelCard } from '../../interfaces/imovel.interface';
   templateUrl: './card-imovel.html',
   styleUrl: './card-imovel.css',
 })
-export class CardImovel implements OnInit {
+export class CardImovel {
   @Input() cards: ImovelCard[] = [];
 
-  visibleCards!: any;
-  startIndex = 0;
-
-  ngOnInit(): void {
-    this.visibleCards = this.cards.slice(0, 4);
-    console.log(this.cards)
-    console.log(this.visibleCards)
-  }
+  // ...existing code...
 
   favoritar(codigo: number) {
     // Implemente a lógica de favoritar aqui
