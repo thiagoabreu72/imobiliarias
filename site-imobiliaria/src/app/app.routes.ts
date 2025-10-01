@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Catalogo } from './catalogo/catalogo';
 import { ImovelDetalhes } from './imovel-detalhes/imovel-detalhes';
+import { FaleConosco } from './fale-conosco/fale-conosco';
 
 export const routes: Routes = [
 	{
@@ -11,7 +12,7 @@ export const routes: Routes = [
     path: 'comprar',
     component: Catalogo,
     data: {
-      finalidade: 2, 
+      finalidade: 2,
       titulo: 'Imóveis à Venda'
     }
   },
@@ -19,8 +20,16 @@ export const routes: Routes = [
     path: 'alugar',
     component: Catalogo,
     data: {
-      finalidade: 1, 
+      finalidade: 1,
       titulo: 'Imóveis para Alugar'
+    }
+  },
+  {
+    path: 'fale-conosco',
+    component: FaleConosco,
+    data: {
+      finalidade: 3,
+      titulo: 'Fale Conosco'
     }
   },
   {

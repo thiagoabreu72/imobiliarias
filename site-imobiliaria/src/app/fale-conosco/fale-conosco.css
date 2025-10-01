@@ -1,0 +1,71 @@
+#banner_header {
+    height: 380px;
+    background-size: cover;
+}
+
+#banner_header h1 {
+    color: #fff;
+    z-index: 1;
+}
+
+#banner_header::before {
+    content: "";
+    display: block;
+    margin-top: 0px;
+    width: 100%;
+    height: inherit;
+    background: rgba(0, 0, 0, .6);
+    position: absolute;
+    left: 0;
+}
+
+.box_contato {
+  padding: 40px;
+  border-radius: 4px;
+  font-family: 'Roboto-Regular', sans-serif;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 5px 0px #9c9c9c;
+  -moz-box-shadow: 0px 0px 5px 0px #9c9c9c;
+  box-shadow: 0px 0px 5px 0px #9c9c9c;
+  color: #f6f6f6;
+}
+
+.back_secundario {
+  background-color: #f6f6f6 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0px;
+  line-height: normal;
+}
+
+h3 {
+  font-family: 'Roboto-Regular', sans-serif;
+  font-size: 1.5rem;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto-Regular", sans-serif;
+}
+
+
+.font_form {
+    font-size: 13px;
+}
+.color_texto {
+    color: #000 !important;
+}
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
